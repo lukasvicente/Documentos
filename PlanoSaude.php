@@ -25,14 +25,35 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h3 class="header center orange-text">Declaraçõe IRPF</h3>
+      <h3 class="header center orange-text">Declarações IRPF</h3>
 
 <p id="carregamento"></p>
+   
+<script type="text/javascript">
+ 
+  function Refresh()
+  {
 
-    <form name="formirpf" action="DeclaracaoPlanoSaude.php" method="POST" class="col s12">
+     window.location.reload();
+  }
+  
+  function valida(form){
+
+    if(form.cpf.value=="")
+    {
+      alert("Preencha o campo CPF corretamente!");
+      form.cpf.focus();
+      Refresh();
+    return false;
+    }
+
+}
+    </script>
+
+    <form name="formirpf" action="DeclaracaoPlanoSaude.php" method="POST" class="col s12" onsubmit="return valida(this);return false;">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Somente Números" name="cpf"  type="text" class="validate" maxlength="11">
+          <input placeholder="Somente Números" name="cpf"  id="cpf"  type="text" class="validate" maxlength="11">
           <label for="cpf">CPF</label>
         </div>
  
@@ -70,6 +91,7 @@ function myFunction() {
  
     document.getElementById("carregamento").innerHTML = html;
 }
+
 </script>
 
     </form>

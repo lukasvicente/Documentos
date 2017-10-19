@@ -21,6 +21,15 @@
   </div> 
   <div class="container">
   <div class="col s12 m4 l8"> 
+
+<a href="PlanoSaude.php" id="download-button" class="btn waves-effect waves-light blue">Voltar
+<i class="material-icons right">arrow_back</i>
+</a>
+
+<a href="#" id="download-button" class="btn waves-effect waves-light green">Imprimir
+<i class="material-icons right">file_download</i>
+</a>
+
   <?php
   require_once "app/model/DeclaracaoRecord.php";
   $objects = DeclaracaoRecord::getData();
