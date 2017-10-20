@@ -1,58 +1,69 @@
 <?php
-/******************************************************************************/
-// Arquivo: meuPrimeiroGeradorPDF.php 
-// Este arquivo é parte integrante do artigo: 
-// Gerando Documentos PDF com a Classe FPDF no PHP 
-// Autor: José Vanol Jr. Data: 12/07/2010 
-/******************************************************************************/
 
 //Incluindo o arquivo onde está a Classe FPDF
 require_once("lib/fpdf/fpdf.php");
 
 include_once "app/model/DeclaracaoRecord.php";
-
+include_once "util.php";
 
 
 define('FPDF_FONTPATH','lib/fpdf/font/');
+
+
 class PDF extends FPDF {
 
 //Page header
     function Header() {
-        //endereco da imagem,posicao X(horizontal),posicao Y(vertical), tamanho altura, tamanho largura
-        //$this->Image("app.images/logo_assemarn.jpg", 10, 10, 26, 18);
 
-        //Arial bold 15
-        $this->SetFont('Arial', 'B', 11);
-        $this->SetY("19");
-        $this->SetX("38");
-        $this->Cell(0, 5, utf8_decode("GOVERNO DO ESTADO DO RIO GRANDE DO NORTE"), 0, 1, 'C');
-        $this->SetX("38");
-        $this->Cell(0, 5, utf8_decode("ASSOCIAÇÃO DOS SERVIDORES DA EMATER DO RIO GRANDE DO NORTE"), 0, 1, 'C');
-        $this->Ln();
-        $this->Cell(0, 5, '', "T", 1, 'J');
+        $this->Image("app/images/logo_relatorio2.jpg", 10, 10, 26, 18);
 
+       //Arial bold 15
+        $this->SetFont('Arial', 'B', 12);
+        $this->SetY("10");
+        $this->SetX("50");
+        $this->Cell(0, 4, utf8_decode("ASSOCIAÇÃO DOS SERVIDORES DA EMATER - RN"), 0, 1, 'L');
+        $this->SetFont('Arial', '', 12);
+        $this->SetX("50");
+        $this->Cell(0, 4, utf8_decode("Centro Administrativo do Estado - BR-101 km 0"), 0, 1, 'L');
+        $this->SetX("50");
+        $this->Cell(0, 4, utf8_decode("CEP 59064.901 - Lagoa Nova - Natal-RN "), 0, 1, 'L');
         
-        $this->SetFont('Arial', 'BU', 10);
-        $this->Cell(0, 5, utf8_decode("LISTA DOS SÓCIOS - ".strtoupper(($_REQUEST['cpf']))." / ".$_POST['cpf']), 0, 0, 'C');
-        $this->Ln(7);
+        $this->SetX("50");
+        $this->Cell(0, 4, utf8_decode("CGC 08.455.941/0001-21 Fone 84 3234-9490 - Cel. 84 9950-9341 "), 0, 1, 'L');
+        
+        $this->SetX("50");
+        $this->Cell(0, 4, utf8_decode("WWW.ASSEMARN.COM.BR - Reconhecida de utilidade pública: Lei Estadual 8639"), 0, 1, 'L');
+        $this->Cell(0, 5, '', "T", 1, 'J');
         $this->ColumnHeader();
     }
 
     function ColumnHeader() {
-        $this->SetFont('arial', 'B', 8);
-        $this->Cell(15, 6, utf8_decode("Matrícula"), 1, 0, 'L');
-        $this->Cell(70, 6, utf8_decode("Sócio"), 1, 0, 'L');
-        $this->Cell(25, 6, utf8_decode("CPF"), 1, 0, 'L');
-        $this->Cell(80, 6, utf8_decode("E-MAIL"), 1, 0, 'L');
-        $this->Cell(30, 6, utf8_decode("TELEFONE"), 1, 0, 'L');
-        $this->Cell(30, 6, utf8_decode("CELULAR"), 1, 0, 'L');
-        $this->Cell(30, 6, utf8_decode("TIPO SOCIO"), 1, 0, 'L');
+        $this->SetFont('arial', 'B', 12);
+        $this->Cell(60, 6, utf8_decode("Plano"), 1, 0, 'L');
+        $this->Cell(40, 6, utf8_decode("Tipo"), 1, 0, 'L');
+        $this->Cell(95, 6, utf8_decode("Nome"), 1, 0, 'L');
+        $this->Cell(40, 6, utf8_decode("CPF"), 1, 0, 'L');
+        $this->Cell(30, 6, utf8_decode("Valor"), 1, 0, 'L');
+
         $this->Ln();
     }
 
     function ColumnDetail() {
+        
+    $decript = $_GET['seleciona'];
+    $cpf = base64_decode($decript);
 
- 
+    $objects = DeclaracaoRecord::getData();
+
+    foreach ( $objects as $object ) {
+        if (  $cpf == $object['titular']) {
+            $this->Cell(60, 6, $object['plano'], 1, 0, 'L');
+            $this->Cell(40, 6, $object['tipo'], 1, 0, 'L');
+            $this->Cell(95, 6, $object['nome'], 1, 0, 'L');
+            $this->Cell(40, 6, formatarCpf($object['paciente']), 1, 0, 'L');
+            $this->Cell(30, 6, $object['valor'], 1, 1, 'L');
+            }
+        }
     }
 
 //Page footer
@@ -80,7 +91,7 @@ class PDF extends FPDF {
 
 $pdf = new PDF("L", "mm", "A4");
 //define o titulo
-$pdf->SetTitle("Relatorio dos Socios");
+$pdf->SetTitle("Declaracao Plano Saude");
 //define o assunto
 $pdf->SetSubject("ASSEMARN | EMATER-RN");
 

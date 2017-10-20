@@ -7,7 +7,10 @@
   <title>ASSEMA - RN</title>
 
   <!-- CSS  -->
-<?php setStyle(); ?>
+<?php setStyle();
+$passar_cpf = $_POST['cpf'];
+$cript = base64_encode($passar_cpf);
+?>
 </head>
 <body>
   <nav class="light-blue lighten-1" role="navigation">
@@ -26,20 +29,20 @@
 <i class="material-icons right">arrow_back</i>
 </a>
 
-<a href="meuPrimeiroGeradorPDF.php" id="download-button" class="btn waves-effect waves-light green">Imprimir
-<i class="material-icons right">file_download</i>
+<a href='meuPrimeiroGeradorPDF.php?seleciona=<?php echo $cript; ?>' target="_blank" id="download-button" class="btn waves-effect waves-light green ">Imprimir
+<i class="material-icons right">print</i>
 </a>
 
   <?php
   require_once "app/model/DeclaracaoRecord.php";
   $objects = DeclaracaoRecord::getData();
 
- 
+  $cpf = $_POST['cpf'];
   echo "<table align=center class='striped'> ";
 
   echo "<thead> <tr><td  >Plano</td><td  >Tipo</td><td  >Nome</td><td  >CPF</td><td  >Valor</td></tr> </thead>";
   foreach ( $objects as $object ) {
-    if ($_POST['cpf'] == $object['titular']) {
+    if (  $cpf == $object['titular']) {
       
     
   echo " <tr><td>".$object['plano']."</td><td>".$object['tipo']."</td><td>".$object['nome']."</td><td  >".$object['paciente']."</td><td>".$object['valor']."</td></tr>  
