@@ -26,7 +26,7 @@
 <i class="material-icons right">arrow_back</i>
 </a>
 
-<a href="#" id="download-button" class="btn waves-effect waves-light green">Imprimir
+<a href="meuPrimeiroGeradorPDF.php" id="download-button" class="btn waves-effect waves-light green">Imprimir
 <i class="material-icons right">file_download</i>
 </a>
 
