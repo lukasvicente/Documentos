@@ -20,7 +20,7 @@ $cript = base64_encode($passar_cpf);
     </div>
   </nav>
   <div class="container">
-    <p>Declaramos para os devidos fins, junto a RECEITA FEDERAL, que o(s) associado(s), efetuou(aram) durante o exerc&iacute;cio de 2015, os pagamentos com planos de sa&uacute;de de acordo com os valores descritos abaixo.</p>
+    <p>Declaramos para os devidos fins, junto a RECEITA FEDERAL, que o(s) associado(s), efetuou(aram) durante o exerc&iacute;cio de 2017, os pagamentos com planos de sa&uacute;de de acordo com os valores descritos abaixo.</p>
   </div> 
   <div class="container">
   <div class="col s12 m4 l8"> 

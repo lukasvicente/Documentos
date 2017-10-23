@@ -33,8 +33,22 @@ class PDF extends FPDF {
         
         $this->SetX("50");
         $this->Cell(0, 4, utf8_decode("WWW.ASSEMARN.COM.BR - Reconhecida de utilidade pública: Lei Estadual 8639"), 0, 1, 'L');
+        $this->Ln(4);
         $this->Cell(0, 5, '', "T", 1, 'J');
+
+        $this->Ln(10);
+        $this->SetFont('Arial', 'B', 18);
+        //$this->SetX("50");
+        $this->Cell(0, 4, utf8_decode("Declaração"), 0, 1, 'C');
+        $this->Ln(10);
+
+        $this->SetFont('Arial', '', 12);
+        //$this->SetX("10");
+        $this->MultiCell(0, 6, utf8_decode("Declaramos para os devidos fins, junto a RECEITA FEDERAL, que o(s) associado(s) , efetuou(aram) durante o exercício de 2017, os pagamentos com planos de saúde de acordo com os valores descritos abaixo."),    'J');
+        $this->Ln(10);
+
         $this->ColumnHeader();
+
     }
 
     function ColumnHeader() {
