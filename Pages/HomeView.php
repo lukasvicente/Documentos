@@ -71,7 +71,7 @@ echo $div;
 
     <div class="col  m3 s6 center-align">
       <a href="#">
-        <img height="90px" src="app/images/ceres.png" alt="">
+        <img height="110px" src="app/images/ceres.png" alt="">
       </a>
     </div>
 

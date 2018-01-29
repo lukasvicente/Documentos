@@ -25,7 +25,7 @@
             <p class="light">Declaração do Imposto de Renda dos Planos de Saúde da ASSEMA/RN.</p>
           </div>
           <div>
-                  <a href="PlanoSaude.php" id="download-button" class="btn-large waves-effect waves-light blue">Consultar</a>
+                  <a href="Pages/PlanoSaude.php" id="download-button" class="btn-large waves-effect waves-light blue">Consultar</a>
                   </div>
         </div>
 

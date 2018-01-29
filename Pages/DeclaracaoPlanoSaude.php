@@ -1,4 +1,4 @@
-<?php require_once "util.php"; ?>
+<?php require_once "../util.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
