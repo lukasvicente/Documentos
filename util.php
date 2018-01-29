@@ -13,6 +13,40 @@ $monta_cpf = "$parte_um.$parte_dois.$parte_tres-$parte_quatro";
 
 return $monta_cpf;
 }
+
+$MenuOptions = [
+    //"Programação" => "Programacao",
+    "Sobre" => "Sobre",
+    "Documentos" => "Documentos",
+    "Balancetes" => "Balancetes",
+    "Noticias" => "Noticias",
+    "Contato" => "Contato"
+];
+
+function setMain( $page )
+{
+    if ( !empty( $page ) &&  file_exists( "Pages/{$page}View.php" ) ) {
+        require_once "Pages/{$page}View.php";
+    } else {
+        require_once "Pages/HomeView.php";
+    }
+}
+
+function setHeader()
+{
+    global $MenuOptions;
+
+    $header = file_get_contents( "lib/html/header.html" );
+
+    $options = "";
+    foreach ( $MenuOptions as $page => $option ) {
+       $options .= '<li><a href="index.php?page='.$option.'">'.$page.'</a></li>';
+    }
+
+    $header = str_replace( "{OPTIONS}", $options, $header );
+
+    echo $header;
+}
 function setFooter()
 {
     echo file_get_contents( "lib/html/footer.html" );
