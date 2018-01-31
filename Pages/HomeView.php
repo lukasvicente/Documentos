@@ -74,10 +74,25 @@ echo $div;
       <h3>Destaques</h3>
       <hr class="intro-divider">
     </div>
+
     <div class="row">
-      <div class="card-panel teal lighten-2">This is a card panel with a teal lighten-2 class</div>
-            
-      
+
+      <div class="col s12 m4 l4"> <!-- Note that "m4 l3" was added -->
+        <div>
+
+          <div class="card-panel hoverable"> <i class="large material-icons">insert_chart</i> <br><b>CARTEIRAS DA UNIMED QUE CHEGARAM NA ASSOCIAÇÃO.</b> <br> <br>&nbsp; Nome dos associados que as carteiras da UNIMED estão na associação.
+        </div>
+
+      </div>  <!-- Grey navigation panel
+
+              This content will be:
+          3-columns-wide on large screens,
+          4-columns-wide on medium screens,
+          12-columns-wide on small screens  -->
+      </div>
+
+ 
+
     </div>
           
     <div class="intro-message center-align">
