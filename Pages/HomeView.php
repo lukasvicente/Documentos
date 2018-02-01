@@ -9,7 +9,7 @@ require_once "app/control/UtilWebservice.php";
         UtilWebservice::$HOST_NAME .
         UtilWebservice::$PROJECT_NAME .
         UtilWebservice::$WEBSERVICE_DIRECTORY .
-        "SliderMulherWebservice.class.php";
+        "SliderNoticiaWebservice.class.php";
 
         $jsonData = file_get_contents( $GRUPO_SERVICO_WEBSERVICE );
         $jsonServicos = json_decode( $jsonData, true );
@@ -18,7 +18,7 @@ require_once "app/control/UtilWebservice.php";
         
         $div = '<main class="container section no-pad-bot">
         <div class="row" > <div class="slider">
-        <ul class="slides">
+        <ul class="slides bluee lighten-1 z-depth-4" style="border-radius: 15px 50px 30px; ">
         ';
 
         echo $div;
@@ -44,9 +44,16 @@ require_once "app/control/UtilWebservice.php";
     {
         foreach ($values as $key) {
 
-        
-        $div = '<li> <img src="'. UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME .'app/images/mulheres/'. strtolower($key['tipo']) .'/'. $key['nomearquivo'] .'">';
-        $div .= '<div class="caption center-align style="text-shadow: 2px 2px #000;"><h3>'.$key['titulo'].'</h3>';
+       $descricao = substr( $key['descricao'], 0,80 ) . "...";
+       $titulo = substr( $key['titulo'], 0,50 ) . "...";
+
+       $className =  'sliderdiv';
+       $div = '<li> <img style="border-radius: 15px 50px 30px; padding: 100px; " src="'. UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME .'app/images/site/'. strtolower($key['tipo']) .'/'. $key['nomearquivo'] .'"> <div  class="caption center-align '. $className .'">
+                <h4 style="text-shadow: 2px 2px #000;">'.  $titulo .'</h4>
+                <h6 class="light grey-text text-lighten-3" style="text-shadow: 2px 2px #000;" >'.$descricao.'</h6>
+              </div>
+             ';
+
         
   echo $div;
 
@@ -63,18 +70,29 @@ echo $div;
     ?>
 <section>
 
-
+    <div class="intro-message center-align">
+      <h3>Destaques</h3>
+      <hr class="intro-divider">
+    </div>
+    <div class="row">
+      <div class="card-panel teal lighten-2">This is a card panel with a teal lighten-2 class</div>
+            
+      
+    </div>
+          
     <div class="intro-message center-align">
       <h3>Parceiros</h3>
       <hr class="intro-divider">
     </div>
-
+     
     <div class="col  m3 s6 center-align">
       <a href="#">
-        <img height="110px" src="app/images/ceres.png" alt="">
+        <img height="130px" src="app/images/ceres.png" alt="">
+      </a>
+      <a href="http://www.emater.rn.gov.br/" target="_blank">
+        <img height="130px" src="app/images/LOGO_EMATER.png" alt="">
       </a>
     </div>
-
     
   <div/>
 </main>

@@ -5,6 +5,389 @@
  *
  * Made By MaterializeCSS.com
  */
+.sliderdiv{
+   
+    padding: 15px 10px !important;
+    top: 150px !important;
+    width: 400px !important;
+    position: absolute !important;
+    bottom: 10px !important;
+    left: 10px !important;
+    background-image: url(images/bg.png) !important;
+    color: #FFF !important;
+  
+    border-radius: 10px 100px 10px 50px !important;
+
+}
+
+@media only screen and (max-width:600px){
+
+	.sliderdiv{
+	   
+	    padding: 15px 10px !important;
+	    top: 180px !important;
+	    width: 100% !important;
+	    position: absolute !important;
+	    bottom: 0px !important;
+	    left: 0px !important;
+	    background-image: url(images/bg.png) !important;
+	    color: #FFF !important;
+	  
+	    border-radius: 10px 100px 27px 50px !important;
+
+	}
+
+}
+
+
+.help-btn{
+	
+	width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    float: right;
+    margin-right: -60px;
+    margin-top: -10px;
+    background-color: white;
+
+}
+
+.cd-top {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  position: fixed;
+  bottom: 40px;
+  right: 10px;
+  border: 1px solid;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  z-index: 9999;
+  /* image replacement properties */
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  background: rgba(232, 98, 86, 0.8) url(app/images/cd-top-arrow.svg) no-repeat center 50%;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+  -moz-transition: opacity .3s 0s, visibility 0s .3s;
+  transition: opacity .3s 0s, visibility 0s .3s;
+}
+.cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover {
+  -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+  -moz-transition: opacity .3s 0s, visibility 0s 0s;
+  transition: opacity .3s 0s, visibility 0s 0s;
+}
+.cd-top.cd-is-visible {
+  /* the button becomes visible */
+  visibility: visible;
+  opacity: 1;
+}
+.cd-top.cd-fade-out {
+  /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+  opacity: .5;
+}
+.no-touch .cd-top:hover {
+  background-color: #e86256;
+  opacity: 1;
+}
+@media only screen and (min-width: 768px) {
+  .cd-top {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .cd-top {
+    height: 60px;
+    width: 60px;
+    right: 30px;
+    bottom: 30px;
+  }
+}
+
+/*.index{
+
+	background-attachment: fixed;
+    background-image: url(bg_body.png);
+    background-repeat: repeat-x;
+    background-position: left top;
+}*/
+
+
+
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+.load-page{
+
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-50px;
+	margin-left:-30px;
+	z-index: 9999;
+
+}
+
+.search-results{
+	position: absolute;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+li.search a{    
+	color: rgba(0,0,0,0.87);
+	display: block;
+	font-size: 14px;
+	font-weight: 500;
+	height: 48px;
+	line-height: 48px;
+	padding: 0 32px; 
+}
+
+li.search:hover{background-color:#fff}
+
+li.search .search-wrapper{margin:0 12px;transition:margin .25s ease}
+
+li.search .search-wrapper.focused{margin:0}
+
+li.search .search-wrapper input#search{display:block;font-size:16px;font-weight:300;width:80%;height:45px;margin:0;padding:0 45px 0 15px;border:0}
+
+li.search .search-wrapper input#search:focus{outline:none}
+
+li.search .search-wrapper i.material-icons{position:absolute;top:10px;right:10px;cursor:pointer}
+
+li.search .search-results{margin:0;border-top:1px solid #e9e9e9;background-color:#fff}
+
+li.search .search-results a{font-size:12px;white-space:nowrap;}
+
+li.search .search-results a:hover,  li.search .search-results a.focused{background-color:#eee;outline:none}
+
+
+
+.item-menu{margin:0;padding:0;}
+
+.item-menu img{width:100%}
+
+.item-menu .card{cursor:pointer}
+
+.item-menu .card-content h3{padding:0;margin:0;font-size:1.5rem;line-height:1.4;font-weight:300}
+
+.item-menu .card-content h3 a{text-transform:none;color:#212121}
+
+.item-menu .row{margin:0 !important;padding-left:10px;padding-right:10px}
+
+.item-menu .price{color:#2196f3;position:relative;text-align:right}
+
+.item-menu .savemoney{position:absolute;color:#bdbdbd;right:10px;top:-20px}
+
+.item-menu .reviews-no{display:none}
+
+@media only screen and (max-width:600px){
+
+	#listModulo li{
+
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  	margin: 5px 0px 5px 0px;
+
+	}
+
+	#listModulo li {
+			padding: 5px; 
+	}
+
+	.item-menu{margin:20px 0}
+
+	.item-menu .card{box-shadow:none;margin:0; padding:0px}
+
+	.item-menu .card-image{width:30%;float:left;height:auto;max-height:auto; }
+
+	.item-menu .card-content{float:right;width:70%;height:auto;max-height:auto;padding:10px}
+
+	.item-menu .card-content {font-size:21px;font-weight:300; margin-top: 20px;}
+
+	.item-menu .card-action{border:0;float:right;width:70%;padding:20px 0 10px;margin:0}
+
+	.item-menu .price-used{display:none}
+
+	.logo-c{
+		width: 40px;
+	}
+
+	.logo-g{
+		width: 60px;
+		float: left !important;
+	}
+
+	#logo-t{
+		left: 105px;
+	}
+
+	.index{
+
+    background-image: url('');
+
+	}
+
+
+}
+
+	.logo-ceres{
+	background-image: url('icon/icon_50x50.png');
+    background-repeat: no-repeat;
+	height: 50px;
+	width: 50px;
+	margin-top: 6px;
+	margin-right: 30px;
+	margin-left: 20px;
+	}
+
+	.logo-gov{	
+	background-image: url('icon/gover50x59.png');
+    background-repeat: no-repeat;
+	height: 52px;
+	width: 61px;
+	margin-top: 6px;
+	margin-left: 20px;
+	margin-right: 5%;	
+	}
+
+	#back{	
+	background-image: url('icon/chevron_left.png');
+    background-repeat: no-repeat;
+	height: 52px;
+	width: 61px;
+	margin-top: 15px;
+	}
+
+	#back:hover{	
+	background-color: rgba(0, 0, 0, 0);
+  	padding: 0px;
+  	border-radius: 0%;
+	}
+
+@media only screen and (max-width:600px){
+	
+	.logo-gov:hover{	
+	background-color: rgba(0, 0, 0, 0);
+  	padding: 0px;
+  	border-radius: 0%;
+	}
+
+	.logo-ceres:hover{	
+	background-color: rgba(0, 0, 0, 0);
+  	padding: 0px;
+  	border-radius: 0%;
+	}
+
+
+	.logo-ceres{
+	background-image: url('icon/icon_30x30.png');
+    background-repeat: no-repeat;
+	height: 30px;
+	margin-top: 12px;
+	margin-right: -28px;
+	margin-left: 2%;
+	}
+
+	.logo-gov{	
+	background-image: url('icon/gover41x35.png');
+    background-repeat: no-repeat;
+	height: 43px;
+	margin-top: 10px;
+	margin-left: -13px;	
+	margin-right: 2%;
+	}
+
+	#back{	
+	margin-top: 10px;
+	}
+
+}
+
+.demo-container{
+	width: auto;
+    height: 350px;
+}
+
+.img-sobre{
+   
+	padding: .125em .625em;
+	
+	top: 0;
+	left: auto;
+	bottom: auto;
+	background: #ffffff;
+	width: 28.9333%; /* 33.3333% incl. 2 x 1.2% margin */
+	margin: .3000em 1.2%;
+	/*box-shadow: 0px 0px 20px #1E1E1E;*/
+    
+}
+
+
+.img-versao {
+   
+    padding: 0px;
+	margin-left: 35%;
+    margin-top:10px;
+    margin-bottom:10px;
+	width: 30%; 
+	height: 30%;
+    border-radius: 100%; 
+    box-shadow: 0px 0px 10px #1E1E1E; 
+
+     -webkit-animation-name: example; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    
+}
+
+.versao{
+	text-align: center;
+	margin-top: -5px;
+	width: auto;
+    padding-bottom: 10px; 
+    text-shadow: 0px 0px #007c42;
+
+    -webkit-animation-name: example; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes example {
+    0%   { opacity:   1; }
+    25%  { opacity:   0.4; }
+    50%  { opacity:   1;}
+    75%  { opacity:   0.4; }
+    100% { opacity:   1; }
+}
+
+/* Standard syntax */
+@keyframes example {
+    0%   { opacity:   1; }
+    25%  { opacity:   0.4; }
+    50%  { opacity:   1;}
+    75%  { opacity:   0.4; }
+    100% { opacity:   1; }
+}
+
+
 
 .icon-block {
   padding: 0 15px;

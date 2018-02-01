@@ -1,9 +1,6 @@
 <?php require_once "util.php";
 require_once "app/control/UtilWebservice.php";  
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,11 +13,9 @@ require_once "app/control/UtilWebservice.php";
 </head>
 <body>
   <?php setHeader(); ?>
-  
-    
+   
   <?php setMain( isset( $_GET["page"] ) ? $_GET["page"] : NULL ); ?>
-  
-
+ 
   <?php setFooter(); ?>
   <?php setScripts(); ?>
   
