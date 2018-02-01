@@ -75,6 +75,7 @@ echo $div;
       <hr class="intro-divider">
     </div>
 <?php 
+
         $DESTAQUE_SERVICO_WEBSERVICE =
         UtilWebservice::$HOST_NAME .
         UtilWebservice::$PROJECT_NAME .
@@ -108,18 +109,20 @@ echo $div;
 
 function mountDestaque( $values )
     {
+    	echo '<div class="row">';
+
         foreach ($values as $key) {
 
        $descricao = substr( $key['descricao'], 0,80 ) . "...";
        $titulo = substr( $key['titulo'], 0,50 ) . "...";
 
        
-       $div1 = '<div class="row">
+       $div1 = '
 
       <div class="col s12 m4 l4"> <!-- Note that "m4 l3" was added -->
         <div>
 
-          <div class="card-panel hoverable"> <i class="large material-icons">insert_chart</i> <br><b>'.$key['titulo'].'</b> <br> <br>&nbsp; '.$key['descricao'].'
+          <div class="card-panel hoverable"> <i class="small material-icons">description</i> <br><b>'.$key['titulo'].'</b> <br> <br>&nbsp; '.$key['descricao'].'
         </div>
 
       </div>  <!-- Grey navigation panel
@@ -138,7 +141,35 @@ function mountDestaque( $values )
 ?>
 
       </div>   
-      
+ 
+    <div class="intro-message center-align">
+      <h3>Serviços</h3>
+      <hr class="intro-divider">
+    </div>
+
+
+
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">local_hospital</i></h2>
+            <h5 class="center">Plano de Saúde</h5>
+
+            <p class="light">Declaração do Imposto de Renda dos Planos de Saúde da ASSEMA/RN.</p>
+          </div>
+          <div>
+                  <a href="Pages/PlanoSaude.php" id="download-button" class="btn-large waves-effect waves-light blue">Consultar</a>
+                  </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
     <div class="intro-message center-align">
       <h3>Parceiros</h3>
       <hr class="intro-divider">
