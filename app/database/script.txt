@@ -1,0 +1,101 @@
+CREATE TABLE public.site_noticia (
+  id BIGSERIAL,
+  titulo VARCHAR(200),
+  descricao TEXT,
+  nomearquivo VARCHAR(200),
+  datapublicacao DATE,
+  situacao VARCHAR(20),
+  autor VARCHAR(80),
+  dataalteracao TIMESTAMP WITHOUT TIME ZONE,
+  usuarioalteracao VARCHAR(20),
+  tipo VARCHAR(50) DEFAULT 'SLIDE'::character varying,
+  icone VARCHAR(80),
+  CONSTRAINT site_noticia_pkey PRIMARY KEY(id)
+) 
+WITH (oids = false);
+
+CREATE OR REPLACE VIEW public.vw_site_destaquehome(
+    id,
+    autor,
+    descricao,
+    titulo,
+    datapublicacao,
+    nomearquivo,
+    situacao,
+    tipo,
+    icone)
+AS
+  SELECT s.id,
+         s.autor,
+         s.descricao,
+         s.titulo,
+         s.datapublicacao,
+         s.nomearquivo,
+         s.situacao,
+         s.tipo,
+         s.icone
+  FROM site_noticia s
+  WHERE s.tipo::text = 'DESTAQUE' ::text;
+
+CREATE OR REPLACE VIEW public.vw_site_slidehome(
+    id,
+    autor,
+    descricao,
+    titulo,
+    datapublicacao,
+    nomearquivo,
+    situacao,
+    tipo)
+AS
+  SELECT s.id,
+         s.autor,
+         s.descricao,
+         s.titulo,
+         s.datapublicacao,
+         s.nomearquivo,
+         s.situacao,
+         s.tipo
+  FROM site_noticia s
+  WHERE s.tipo::text = 'SLIDE' ::text;
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE public.site_noticia (
+  id BIGSERIAL,
+  titulo VARCHAR(200),
+  descricao TEXT,
+  nomearquivo VARCHAR(200),
+  datapublicacao DATE,
+  situacao VARCHAR(20),
+  autor VARCHAR(80),
+  dataalteracao TIMESTAMP WITHOUT TIME ZONE,
+  usuarioalteracao VARCHAR(20),
+  CONSTRAINT site_noticia_pkey PRIMARY KEY(id)
+) 
+WITH (oids = false);
+
+
+CREATE OR REPLACE VIEW public.vw_site_slidehome(
+    id,
+    autor,
+    descricao,
+    titulo,
+    datapublicacao,
+    nomearquivo,
+    situacao)
+AS
+  SELECT s.id,
+         s.autor,
+         s.descricao,
+         s.titulo,
+         s.datapublicacao,
+         s.nomearquivo,
+         s.situacao
+  FROM site_noticia s;
