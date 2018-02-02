@@ -74,13 +74,52 @@ echo $div;
       <h3>Destaques</h3>
       <hr class="intro-divider">
     </div>
+<?php 
+        $DESTAQUE_SERVICO_WEBSERVICE =
+        UtilWebservice::$HOST_NAME .
+        UtilWebservice::$PROJECT_NAME .
+        UtilWebservice::$WEBSERVICE_DIRECTORY .
+        "DestaqueWebservice.class.php";
 
-    <div class="row">
+        $jsonData = file_get_contents( $DESTAQUE_SERVICO_WEBSERVICE );
+        $jsonServicos = json_decode( $jsonData, true );
+        $successServico = $jsonServicos[UtilWebservice::$SUCCESS_TAG];
+        $dadosJson = $jsonServicos[UtilWebservice::$DADOS_TAG];
+        
+        if( $successServico == 1 )
+        {
+        
+            mountDestaque( $dadosJson );
+
+             
+        }else if( $successServico == 2 )
+        {
+             
+            //new TMessage( 'INFO', 'Nenhum valor foi encontrado.' );
+             
+        }else if( $successServico == 0 )
+        {
+             
+            //new TMessage( 'INFO', 'Ocorreu um problema, tente novamente.' );
+             
+        }
+      
+
+
+function mountDestaque( $values )
+    {
+        foreach ($values as $key) {
+
+       $descricao = substr( $key['descricao'], 0,80 ) . "...";
+       $titulo = substr( $key['titulo'], 0,50 ) . "...";
+
+       
+       $div1 = '<div class="row">
 
       <div class="col s12 m4 l4"> <!-- Note that "m4 l3" was added -->
         <div>
 
-          <div class="card-panel hoverable"> <i class="large material-icons">insert_chart</i> <br><b>CARTEIRAS DA UNIMED QUE CHEGARAM NA ASSOCIAÇÃO.</b> <br> <br>&nbsp; Nome dos associados que as carteiras da UNIMED estão na associação.
+          <div class="card-panel hoverable"> <i class="large material-icons">insert_chart</i> <br><b>'.$key['titulo'].'</b> <br> <br>&nbsp; '.$key['descricao'].'
         </div>
 
       </div>  <!-- Grey navigation panel
@@ -89,12 +128,17 @@ echo $div;
           3-columns-wide on large screens,
           4-columns-wide on medium screens,
           12-columns-wide on small screens  -->
-      </div>
+      </div>';   
+  echo $div1;
 
- 
 
-    </div>
-          
+    }
+
+  }
+?>
+
+      </div>   
+      
     <div class="intro-message center-align">
       <h3>Parceiros</h3>
       <hr class="intro-divider">
@@ -108,8 +152,7 @@ echo $div;
         <img height="130px" src="app/images/LOGO_EMATER.png" alt="">
       </a>
     </div>
-    
-  <div/>
+     
 </main>
 <section/>
 
