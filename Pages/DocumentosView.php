@@ -21,15 +21,16 @@
     <div class="col s12">
 
       <ul class="tabs tab-demo z-depth-1">
-        <li class="tab col s3"><a href="#test1">Balancetes</a></li>
+        <li class="tab col s3"><a href="#balancete">Balancetes</a></li>
         <li class="tab col s3"><a href="#test2">Portarias</a></li>
         <li class="tab col s3"><a href="#test3">Eleições</a></li>
         <li class="tab col s3"><a href="#test4">Outros</a></li>
 
       </ul>
     </div>
-    <div id="test1" class="col s12">
-<ul class="collapsible" data-collapsible="accordion">
+    
+    <div id="balancete" class="col s12">
+    <ul class="collapsible" data-collapsible="accordion">
     <li>
       <div class="collapsible-header"><i class="material-icons">date_range</i>2017</div>
       <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
@@ -53,4 +54,4 @@
     </div>
     <br><br>
   </div>
-
+<br><br>
