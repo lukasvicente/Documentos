@@ -1,5 +1,9 @@
 
 
+
+
+
+
 CREATE TABLE public.site_noticia (
   id BIGSERIAL,
   titulo VARCHAR(200),
