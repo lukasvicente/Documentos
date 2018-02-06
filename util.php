@@ -17,10 +17,11 @@ return $monta_cpf;
 $MenuOptions = [
     //"Programação" => "Programacao",
     "Sobre" => "Sobre",
-    "Documentos" => "Documentos",
-    "Balancetes" => "Balancetes",
     "Noticias" => "Noticias",
-    "Contato" => "Contato"
+    "Documentos" => "Documentos",
+    "Contato" => "Contato",
+    "Mais +" => "Mais"
+    
 ];
 
 function setMain( $page )
