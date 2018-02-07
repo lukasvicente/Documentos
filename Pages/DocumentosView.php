@@ -59,13 +59,19 @@ function mountDocumentos( $values )
 
       echo $div;
 
+      $tipo = '';
 
       foreach ($values as $key) {
 
-      $div = '<li class="tab col s3"><a href="#'.$key['tipo'].'">'.$key['tipo'].'</a></li>';
-     
-      echo $div;
+      if ($tipo <> $key['tipo']) {
 
+      $div = '<li class="tab col s3"><a href="#'.$key['tipo'].'">'.$key['tipo'].'</a></li>';
+      echo $div;
+      
+      $tipo = $key['tipo'];
+
+        }
+      
       }
 
       echo "</ul></div>";
@@ -73,7 +79,6 @@ function mountDocumentos( $values )
 
 
 ?>
-
 
     <div id="BALANCETES" class="col s12">
     <ul class="collapsible" data-collapsible="accordion">
