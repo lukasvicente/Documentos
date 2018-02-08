@@ -15,7 +15,9 @@
 <?php 
 
 require_once "app/control/UtilWebservice.php"; 
-  
+
+function mountDocumentoJson()
+    {
         $GRUPO_SERVICO_WEBSERVICE =
         UtilWebservice::$HOST_NAME .
         UtilWebservice::$PROJECT_NAME .
@@ -26,9 +28,6 @@ require_once "app/control/UtilWebservice.php";
         $jsonServicos = json_decode( $jsonData, true );
         $successServico = $jsonServicos[UtilWebservice::$SUCCESS_TAG];
         $dadosJson = $jsonServicos[UtilWebservice::$DADOS_TAG];
-        
-
-
 
         if( $successServico == 1 )
         {
@@ -46,6 +45,8 @@ require_once "app/control/UtilWebservice.php";
             //new TMessage( 'INFO', 'Ocorreu um problema, tente novamente.' );
              
         }
+    
+    }
 
 function mountDocumentos( $values )
     {
@@ -59,16 +60,16 @@ function mountDocumentos( $values )
 
       echo $div;
 
-      $tipo = '';
+      $socio = '';
 
-      foreach ($values as $key) {
+      foreach ($values as $value) {
 
-      if ($tipo <> $key['tipo']) {
+      $div = '<li class="tab col s3"><a href="#'.$value['tipo'].'">'.$value['tipo'].'</a></li>';
 
-      $div = '<li class="tab col s3"><a href="#'.$key['tipo'].'">'.$key['tipo'].'</a></li>';
-      echo $div;
+     if ($socio != $value['tipo']) {
       
-      $tipo = $key['tipo'];
+      $socio = $value['tipo'];
+      echo $div;
 
         }
       
@@ -77,14 +78,17 @@ function mountDocumentos( $values )
       echo "</ul></div>";
   }
 
+  print_r( mountDocumentoJson() );
 
 ?>
 
     <div id="BALANCETES" class="col s12">
+
     <ul class="collapsible" data-collapsible="accordion">
     <li>
       <div class="collapsible-header"><i class="material-icons">date_range</i>2017</div>
       <div class="collapsible-body"><span>Janeiro</span></div>
+
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">date_range</i>2016</div>
@@ -95,6 +99,7 @@ function mountDocumentos( $values )
       <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
     </li>
   </ul>
+
     </div>
 
     <div id="PORTARIAS" class="col s12">Test 2</div>
