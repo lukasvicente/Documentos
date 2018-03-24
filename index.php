@@ -1,5 +1,6 @@
 <?php require_once "util.php";
-require_once "app/control/UtilWebservice.php";  
+require_once "app/control/UtilWebservice.php";
+set_time_limit(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
