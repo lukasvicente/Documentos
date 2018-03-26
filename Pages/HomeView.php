@@ -161,7 +161,7 @@ function mountDestaque( $values )
             <p class="light">Declaração do Imposto de Renda dos Planos de Saúde da ASSEMA/RN.</p>
           </div>
           <div>
-                  <a href="Pages/PlanoSaude.php" id="download-button" class="btn-large waves-effect waves-light blue">Consultar</a>
+                  <a href="http://servicos.emater.rn.gov.br/assemarn/documentos/PlanoSaude.php" target="_blank" id="download-button" class="btn-large waves-effect waves-light blue">Consultar</a>
                   </div>
         </div>
 

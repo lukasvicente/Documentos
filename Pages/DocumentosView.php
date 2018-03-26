@@ -112,23 +112,32 @@ function mountDocumentos( $values )
 
       echo $div;
       $ano = '';
-      foreach ($values as $value) {
+      foreach ($values as $value) 
+      {
 
-      if ($ano <> $value['ano']) {
+      if ($ano <> $value['ano']) 
+        {
 
-      $ano = $value['ano'];
-      $div = '    
-      <li>
-      <div class="collapsible-header"><i class="material-icons">date_range</i>'.$value['ano'].'</div>
-      <div class="collapsible-body"><span> <a href="'.$value['link'].'" target="_blank">'.$value['mes'].'</a></span></div>
-      </li>';
+        $ano = $value['ano'];
 
-      echo $div;
+
+        $div = '    
+        <li>
+        <div class="collapsible-header"><i class="material-icons">date_range</i>'.$value['ano'].'</div>
+        
+        ';
+
+        echo $div;
+
+
         }
+
+      $div = '<div class="collapsible-body"><span> <a href="'.$value['link'].'" target="_blank">'.$value['mes'].'</a></span></div>';
+      echo  $div;
 
       }
 
-      echo "</ul></div>";
+      echo "</li></ul></div>";
   }
 
   print_r( mountTipoDocumentoJson() );
