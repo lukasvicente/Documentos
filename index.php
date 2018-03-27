@@ -3,7 +3,7 @@ require_once "app/control/UtilWebservice.php";
 set_time_limit(0);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
@@ -12,13 +12,14 @@ set_time_limit(0);
 <?php setStyle(); ?>
 
 </head>
-<body>
+<body">
+	
   <?php setHeader(); ?>
    
   <?php setMain( isset( $_GET["page"] ) ? $_GET["page"] : NULL ); ?>
- 
+ <div class="section no-pad-bot">
   <?php setFooter(); ?>
   <?php setScripts(); ?>
-  
+  </div>
   </body>
 </html>
