@@ -12,14 +12,17 @@ set_time_limit(0);
 <?php setStyle(); ?>
 
 </head>
-<body">
+<body>
 	
-  <?php setHeader(); ?>
+  <?php setHeader();  
    
-  <?php setMain( isset( $_GET["page"] ) ? $_GET["page"] : NULL ); ?>
- <div class="section no-pad-bot">
-  <?php setFooter(); ?>
-  <?php setScripts(); ?>
+  setMain( isset( $_GET["page"] ) ? $_GET["page"] : NULL );  
+
+  setFooter();  
+  setScripts(); 
+
+  ?>
+
   </div>
   </body>
 </html>
