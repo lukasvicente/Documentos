@@ -50,7 +50,12 @@ function setHeader()
 }
 function setFooter()
 {
-    echo file_get_contents( "lib/html/footer.html" );
+    $footer = file_get_contents( "lib/html/footer.html" );
+
+    $ano = date('Y');
+    $footer = str_replace( "{ANO}", $ano, $footer );
+
+    echo $footer;
 }
 
 function setStyle()
