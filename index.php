@@ -13,16 +13,20 @@ set_time_limit(0);
 
 </head>
 <body>
-	
-  <?php setHeader();  
-   
-  setMain( isset( $_GET["page"] ) ? $_GET["page"] : NULL );  
 
+  <?php setHeader();?>    
+
+  <main>
+  <?php
+  setMain( isset( $_GET["page"] ) ? $_GET["page"] : NULL ); 
+  ?>
+  </main>
+
+    
+  <?php
   setFooter();  
   setScripts(); 
-
   ?>
 
-  </div>
   </body>
 </html>

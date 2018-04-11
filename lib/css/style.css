@@ -5,6 +5,23 @@
  *
  * Made By MaterializeCSS.com
  */
+ html {  }
+ *{ margin: 0;
+   padding: 0; 
+  }
+
+  body 
+  {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main 
+  {
+    flex: 1 0 auto;
+  }
+      
 .sliderdiv{
    
     padding: 15px 10px !important;
