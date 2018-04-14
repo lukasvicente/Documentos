@@ -56,7 +56,7 @@ function mountTipoDocumentos( $values )
       <div class="row">
       <div class="section scrollspy">
       <div class="col s12">
-      <ul class="tabs tab-demo z-depth-1">';
+      <ul class="tabs tabs-fixed-width z-depth-1">';
 
       echo $div;
 
@@ -108,7 +108,7 @@ function mountDocumentos( $values )
      
       $div = '    
       <div id="BALANCETES" class="col s12">
-      <ul class="collapsible" data-collapsible="accordion">';
+      <ul class="collapsible popout" data-collapsible="accordion">';
 
       echo $div;
       $ano = '';

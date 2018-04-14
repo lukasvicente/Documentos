@@ -122,7 +122,7 @@ function mountDestaque( $values )
       <div class="col s12 m4 l4"> <!-- Note that "m4 l3" was added -->
         <div>
 
-          <div class="card-panel hoverable"> <i class="small material-icons">description</i> <br><b>'.$key['titulo'].'</b> <br> <br>&nbsp; '.$key['descricao'].'
+          <div class="card-panel hoverable"> <i class="small material-icons">description</i> <br><b>'.$key['titulo'].'</b> <br> <br>&nbsp; <div align="justify">'.$key['descricao'].'</div>
         </div>
 
       </div>  <!-- Grey navigation panel
