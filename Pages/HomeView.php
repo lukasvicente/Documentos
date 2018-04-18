@@ -68,7 +68,7 @@ require_once "app/control/UtilWebservice.php";
 ';
 echo $div;
     ?>
-<section>
+
 
     <div class="intro-message center-align">
       <h3>Destaques</h3>
@@ -122,7 +122,7 @@ function mountDestaque( $values )
       <div class="col s12 m4 l4"> <!-- Note that "m4 l3" was added -->
         <div>
 
-          <div class="card-panel hoverable"> <i class="small material-icons">description</i> <br><b>'.$key['titulo'].'</b> <br> <br>&nbsp; <div align="justify">'.$key['descricao'].'</div>
+          <div class="card-panel hoverable"> <i class="material-icons tiny">description</i> <b>'.$key['titulo'].'</b>  <br>&nbsp; <div align="justify">'.$key['descricao'].'</div>
         </div>
 
       </div>  <!-- Grey navigation panel
