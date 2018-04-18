@@ -116,7 +116,7 @@ function mountNoticia( $values )
                 <div class="col s12 m6">
                     <div class="card tiny">
                         <div class="card-image">
-                            <img src="'.$GRUPO_SERVICO_WEBSERVICE = UtilWebservice::$HOST_NAME .UtilWebservice::$PROJECT_NAME.'/app/images/site/'.$value['nomearquivo'].'">
+                            <img src="'.UtilWebservice::$HOST_NAME .UtilWebservice::$PROJECT_NAME.'/app/images/site/'.$value['nomearquivo'].'">
                             <span class="card-title"></span>
                         </div>
                         <div class="card-content">
