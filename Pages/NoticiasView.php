@@ -76,7 +76,8 @@ function mountCategoria( $values )
         UtilWebservice::$HOST_NAME .
         UtilWebservice::$PROJECT_NAME .
         UtilWebservice::$WEBSERVICE_DIRECTORY .
-        "NoticiaSiteWebservice.class.php";
+        "NoticiaSiteWebservice.class.php".
+        (( filter_input(INPUT_GET, 'key') ) ? "?id=".filter_input(INPUT_GET, "key") : "");
 
         $jsonData = file_get_contents( $GRUPO_SERVICO_WEBSERVICE );
         $jsonServicos = json_decode( $jsonData, true );
@@ -111,6 +112,8 @@ function mountNoticia( $values )
       echo $div;
 
       foreach ($values as $value) {
+    if (!filter_input(INPUT_GET, 'key')){
+
 
       $div = '
                 <div class="col s12 m6">
@@ -121,16 +124,23 @@ function mountNoticia( $values )
                         </div>
                         <div class="card-content">
                             <p class="grey-text"> <i class="material-icons tiny">watch_later</i> &nbsp;'.$value['dia'].', '.$value['mes'].' '.$value['ano'].'</p><br>
-                            <p>'.$value['titulo'].'</p>
+                           <a href="index.php?page=Noticias&key='.$value['id'].'"> <p>'.$value['titulo'].'</p></a>
                         </div>
                         <div class="card-action">
-                            <a href="#"><i class="material-icons tiny">subject</i>&nbsp;Leia Mais</a>
+                            <a href="index.php?page=Noticias&key='.$value['id'].'"><i class="material-icons tiny">subject</i>&nbsp;Leia Mais</a>
                         </div>
                     </div>
                 </div>';
 
       echo $div;
+    }
+          if( $value['id'] == $_GET['key']  ){
+              $div = '
+                <h5>'.$value['titulo'].'</h5><br>
+                '.$value['descricao'].'';
 
+              echo $div;
+          }
       }
 
       echo "";
