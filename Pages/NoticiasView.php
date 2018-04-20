@@ -136,7 +136,7 @@ function mountNoticia( $values )
     }
           if( $value['id'] == $_GET['key']  ){
               $div = '
-                <h5>'.$value['titulo'].'</h5>
+                <h5><b>'.$value['titulo'].'</b></h5>
                 <hr class="intro-divider"> <br>
                 <a class="grey-text"> <i class="material-icons tiny">watch_later</i> &nbsp;'.$value['dia'].' de '.$value['mes'].' '.$value['ano'].'</a>
                 <br> <br>
