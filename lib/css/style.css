@@ -347,7 +347,14 @@ li.search .search-results a:hover,  li.search .search-results a.focused{backgrou
 	/*box-shadow: 0px 0px 20px #1E1E1E;*/
     
 }
-
+#img-noticia{
+	float: left;
+	border: transparent thin solid;
+	padding: 5px;
+	margin: 0px 10px 10px 0;
+	max-width: 200px;
+	border-radius: 10px 20px 30px;
+}
 
 .img-versao {
    

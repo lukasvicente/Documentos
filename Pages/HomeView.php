@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 //ini_set('display_errors', 1);
 //ini_set('display_startup_erros', 1);
 //error_reporting(E_ALL);
-require_once "app/control/UtilWebservice.php"; 
-  
+require_once "app/control/UtilWebservice.php";
+
         $GRUPO_SERVICO_WEBSERVICE =
         UtilWebservice::$HOST_NAME .
         UtilWebservice::$PROJECT_NAME .
@@ -15,7 +15,7 @@ require_once "app/control/UtilWebservice.php";
         $jsonServicos = json_decode( $jsonData, true );
         $successServico = $jsonServicos[UtilWebservice::$SUCCESS_TAG];
         $dadosJson = $jsonServicos[UtilWebservice::$DADOS_TAG];
-        
+
         $div = '<main class="container section no-pad-bot">
         <div class="row" > <div class="slider">
         <ul class="slides bluee lighten-1 z-depth-4" style="border-radius: 15px 50px 30px; ">
@@ -25,19 +25,19 @@ require_once "app/control/UtilWebservice.php";
 
         if( $successServico == 1 )
         {
-        
+
             mountSlider( $dadosJson );
-             
+
         }else if( $successServico == 2 )
         {
-             
+
             //new TMessage( 'INFO', 'Nenhum valor foi encontrado.' );
-             
+
         }else if( $successServico == 0 )
         {
-             
+
             //new TMessage( 'INFO', 'Ocorreu um problema, tente novamente.' );
-             
+
         }
 
     function mountSlider( $values )
@@ -47,22 +47,21 @@ require_once "app/control/UtilWebservice.php";
        $descricao = substr( $key['descricao'], 0,80 ) . "...";
        $titulo = substr( $key['titulo'], 0,50 ) . "...";
 
-       $className =  'sliderdiv';
-       $div = '<li> <img style="border-radius: 15px 50px 30px; padding: 100px; " src="'. UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME .'app/images/site/'. strtolower($key['tipo']) .'/'. $key['nomearquivo'] .'"> <div  class="caption center-align '. $className .'">
+       //$className =  'sliderdiv';
+       $div = '<li> <img style="border-radius: 15px 50px 30px; padding: 100px; " src="'. UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME .'app/images/site/'. strtolower($key['tipo']) .'/'. $key['nomearquivo'] .'"> <div  class="caption center-align sliderdiv">
                 <h4 style="text-shadow: 2px 2px #000;">'.  $titulo .'</h4>
                 <h6 class="light grey-text text-lighten-3" style="text-shadow: 2px 2px #000;" >'.$descricao.'</h6>
-              </div>
+             </div>
+              </li>
              ';
 
-        
+
   echo $div;
 
     }
   }
 
-  $div ='</div>
-      </li>
-      
+  $div =' 
     </ul>
   </div>
 ';
@@ -74,7 +73,7 @@ echo $div;
       <h3>Destaques</h3>
       <hr class="intro-divider">
     </div>
-<?php 
+<?php
 
         $DESTAQUE_SERVICO_WEBSERVICE =
         UtilWebservice::$HOST_NAME .
@@ -86,25 +85,25 @@ echo $div;
         $jsonServicos = json_decode( $jsonData, true );
         $successServico = $jsonServicos[UtilWebservice::$SUCCESS_TAG];
         $dadosJson = $jsonServicos[UtilWebservice::$DADOS_TAG];
-        
+
         if( $successServico == 1 )
         {
-        
+
             mountDestaque( $dadosJson );
 
-             
+
         }else if( $successServico == 2 )
         {
-             
+
             //new TMessage( 'INFO', 'Nenhum valor foi encontrado.' );
-             
+
         }else if( $successServico == 0 )
         {
-             
+
             //new TMessage( 'INFO', 'Ocorreu um problema, tente novamente.' );
-             
+
         }
-      
+
 
 
 function mountDestaque( $values )
@@ -116,7 +115,7 @@ function mountDestaque( $values )
        $descricao = substr( $key['descricao'], 0,80 ) . "...";
        $titulo = substr( $key['titulo'], 0,50 ) . "...";
 
-       
+
        $div1 = '
 
       <div class="col s12 m4 l4"> <!-- Note that "m4 l3" was added -->
@@ -131,7 +130,7 @@ function mountDestaque( $values )
           3-columns-wide on large screens,
           4-columns-wide on medium screens,
           12-columns-wide on small screens  -->
-      </div>';   
+      </div>';
   echo $div1;
 
 
@@ -140,8 +139,8 @@ function mountDestaque( $values )
   }
 ?>
 
-      </div>   
- 
+      </div>
+
     <div class="intro-message center-align">
       <h3>Serviços</h3>
       <hr class="intro-divider">
@@ -174,7 +173,7 @@ function mountDestaque( $values )
       <h3>Parceiros</h3>
       <hr class="intro-divider">
     </div>
-     
+
     <div class="col  m3 s6 center-align">
       <a href="#">
         <img height="130px" src="app/images/ceres.png" alt="">
@@ -183,7 +182,6 @@ function mountDestaque( $values )
         <img height="130px" src="app/images/LOGO_EMATER.png" alt="">
       </a>
     </div>
-     
+
 </main>
-<section/>
 
