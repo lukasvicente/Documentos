@@ -352,7 +352,7 @@ li.search .search-results a:hover,  li.search .search-results a.focused{backgrou
 	border: transparent thin solid;
 	padding: 5px;
 	margin: 0px 10px 10px 0;
-	max-width: 200px;
+	max-width: 300px;
 	border-radius: 10px 20px 30px;
 }
 
