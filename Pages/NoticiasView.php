@@ -162,12 +162,8 @@
 
                     echo $div;
                 }
-            
-        
-
 
         }
-
 
             if (!filter_input(INPUT_GET, 'key')) {
 
@@ -227,5 +223,5 @@
 
         print_r(mountNoticiaJson());
 
-        ?>
+?>
 

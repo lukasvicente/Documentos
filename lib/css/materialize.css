@@ -2730,7 +2730,7 @@ video.responsive-video {
 }
 
 .pagination li.active {
-  background-color: #ee6e73;
+  background-color: #29b6f6;
 }
 
 .pagination li.disabled a {
@@ -3061,7 +3061,9 @@ td, th {
 .collection {
   margin: 0.5rem 0 1rem 0;
   border: 1px solid #e0e0e0;
-  border-radius: 2px;
+
+ /*Bordas arrendondadas*/
+ border-radius: 10px 20px 30px 40px;
   overflow: hidden;
   position: relative;
 }
@@ -3120,6 +3122,8 @@ td, th {
 .collection .collection-item.active {
   background-color: #26a69a;
   color: #eafaf9;
+  /*Bordas arrendondadas*/
+  border-radius: 10px 20px 30px 40px;
 }
 
 .collection .collection-item.active .secondary-content {
@@ -3131,6 +3135,7 @@ td, th {
   -webkit-transition: .25s;
   transition: .25s;
   color: #26a69a;
+  border-radius: 10px 20px 30px 40px;
 }
 
 .collection a.collection-item:not(.active):hover {
