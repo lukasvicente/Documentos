@@ -100,12 +100,14 @@
         function mountNoticia($values)
         {
             $i = 0;
+            //quantidade de registros por pagina
+            $qReg = 3;
 
             $numberPage = intval((filter_input(INPUT_GET, 'p')) ? filter_input(INPUT_GET, 'p') : "1");
 
             // CALCULA O INICIO DA PAGINAÇÃO COM O "NUMERO DA PAGINA INFORMADO"
-            $valor_pag_begin = ((($numberPage - 1) * 3) + $numberPage) - ($numberPage - 1);
-            $valor_pag_end = $numberPage * 3;
+            $valor_pag_begin = ((($numberPage - 1) * $qReg) + $numberPage) - ($numberPage - 1);
+            $valor_pag_end = $numberPage * $qReg;
 
             $div = '<div class="col s12 m8 l9">
 
@@ -116,7 +118,7 @@
 
             foreach ($values as $value) {
                 $i++;
-          
+
           if( $i >= $valor_pag_begin  and $i <=  $valor_pag_end ){
 
                 if (!filter_input(INPUT_GET, 'key')) {
@@ -140,6 +142,7 @@
 
                     echo $div;
                 }
+            }
                 if ($value['id'] == $_GET['key']) {
 
                     //if para sem imagem
@@ -159,7 +162,7 @@
 
                     echo $div;
                 }
-            }
+            
         
 
 
@@ -174,27 +177,47 @@
             }
 
         if( !filter_input(INPUT_GET, 'key') ){
-          getPagination( ceil(count($values) /3), $numberPage  );
+          getPagination( ceil(count($values) /$qReg), $numberPage  );
         }
 }
 
     function getPagination( $count, $page )
     {
+
+    $numberPage = intval((filter_input(INPUT_GET, 'p')) ? filter_input(INPUT_GET, 'p') : "1");
+
+       
+        $back = $numberPage - 1;
+
       $div = '<center>
         <ul class="pagination">
-            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>'; 
+            <li class="waves-effect"><a href="index.php?page=Noticias&p='.$back.'"><i class="material-icons">chevron_left</i></a></li>'; 
       echo $div;
 
-      for ($i=1; $i <= $count ; $i++) { 
         
-        $div = ' <li class="active"><a href="index.php?page=Noticias&p='.$i.'">'.$i.'</a></li>'; 
-      echo $div;
+      for ($i=1; $i <= $count ; $i++) { 
+
+        if ($numberPage == $i) 
+        {
+            $classe = 'class="active"';
+        }else{
+            $classe = '';
+        }
+        
+        $forward = $numberPage + 1;
+
+        $div = ' <li '.$classe.' ><a href="index.php?page=Noticias&p='.$i.'">'.$i.'</a></li>'; 
+        echo $div;
       }
 
-      echo '<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-        </ul>
-        </center>';
+      if ($count > $numberPage) 
+      {
+        echo '<li class="waves-effect"><a href="index.php?page=Noticias&p='.$forward.'"><i class="material-icons">chevron_right</i></a></li>'; 
+      }
+    
 
+    echo '</ul>
+        </center>';
     }
         if (!filter_input(INPUT_GET, 'key')) {
 
