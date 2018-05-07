@@ -356,6 +356,16 @@ li.search .search-results a:hover,  li.search .search-results a.focused{backgrou
 	border-radius: 10px 20px 30px;
 }
 
+#img-noticia-list{
+	float: left;
+	border: transparent thin solid;
+	padding: 5px;
+	margin: 0px 10px 10px 0;
+	max-width: 250px;
+	
+}
+
+
 .img-versao {
    
     padding: 0px;
