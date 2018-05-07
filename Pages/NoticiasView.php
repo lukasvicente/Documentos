@@ -111,7 +111,7 @@
 
             $div = '<div class="col s12 m8 l9">
 
-            <div class="row">';
+            ';
 
             echo $div;
 
@@ -168,7 +168,7 @@
             if (!filter_input(INPUT_GET, 'key')) {
 
                 echo '
-            </div>
+            
         </div>';
             }
 
