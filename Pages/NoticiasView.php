@@ -101,7 +101,7 @@
         {
             $i = 0;
             //quantidade de registros por pagina
-            $qReg = 3;
+            $qReg = 4;
 
             $numberPage = intval((filter_input(INPUT_GET, 'p')) ? filter_input(INPUT_GET, 'p') : "1");
 

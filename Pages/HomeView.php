@@ -48,10 +48,12 @@ require_once "app/control/UtilWebservice.php";
        $titulo = substr( $key['titulo'], 0,50 ) . "...";
 
        //$className =  'sliderdiv';
-       $div = '<li> <img style="border-radius: 15px 50px 30px; padding: 100px; " src="'. UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME .'app/images/site/'. strtolower($key['tipo']) .'/'. $key['nomearquivo'] .'"> <div  class="caption center-align sliderdiv">
+       $div = '<li> 
+        <a href="index.php?page=Noticias&key='.$key['id'].'"> 
+       <img style="border-radius: 15px 50px 30px; padding: 100px; " src="'. UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME .'app/images/site/'. strtolower($key['tipo']) .'/'. $key['nomearquivo'] .'"> <div  class="caption center-align sliderdiv">
                 <h4 style="text-shadow: 2px 2px #000;">'.  $titulo .'</h4>
-                <h6 class="light grey-text text-lighten-3" style="text-shadow: 2px 2px #000;" >'.$descricao.'</h6>
-             </div>
+                
+             </div> </a>
               </li>
              ';
 
