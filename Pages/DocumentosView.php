@@ -12,9 +12,9 @@
     </div>
   </div>
 
-<?php 
+<?php
 
-require_once "app/control/UtilWebservice.php"; 
+require_once "app/control/UtilWebservice.php";
 
 function mountTipoDocumentoJson()
     {
@@ -31,21 +31,21 @@ function mountTipoDocumentoJson()
 
         if( $successServico == 1 )
         {
-        
+
             mountTipoDocumentos( $dadosJson );
-             
+
         }else if( $successServico == 2 )
         {
-             
+
             //new TMessage( 'INFO', 'Nenhum valor foi encontrado.' );
-             
+
         }else if( $successServico == 0 )
         {
-             
+
             //new TMessage( 'INFO', 'Ocorreu um problema, tente novamente.' );
-             
+
         }
-    
+
     }
 
 function mountTipoDocumentos( $values )
@@ -86,36 +86,36 @@ function mountTipoDocumentos( $values )
 
         if( $successServico == 1 )
         {
-        
+
             mountDocumentos( $dadosJson );
-             
+
         }else if( $successServico == 2 )
         {
-             
+
             //new TMessage( 'INFO', 'Nenhum valor foi encontrado.' );
-             
+
         }else if( $successServico == 0 )
         {
-             
+
             //new TMessage( 'INFO', 'Ocorreu um problema, tente novamente.' );
-             
+
         }
-    
+
     }
 
 function mountDocumentos( $values )
     {
-     
+
       $div = '    
       <div id="BALANCETES" class="col s12">
       <ul class="collapsible popout" data-collapsible="accordion">';
 
       echo $div;
       $ano = '';
-      foreach ($values as $value) 
+      foreach ($values as $value)
       {
 
-      if ($ano <> $value['ano']) 
+      if ($ano <> $value['ano'])
         {
 
         $ano = $value['ano'];

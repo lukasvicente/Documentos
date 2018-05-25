@@ -122,17 +122,17 @@
           if( $i >= $valor_pag_begin  and $i <=  $valor_pag_end ){
 
                 if (!filter_input(INPUT_GET, 'key')) {
-
+                $titulo = $value['titulo'];
                     $div = '
                 <div class="col s12 m6">
                     <div class="card tiny">
-                        <div class="card-image">
-                            <img src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . '/app/images/site/' . $value['nomearquivo'] . '">
+                        <div class="card-image" >
+                            <img src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . '/app/images/site/' . $value['nomearquivo'] . '" width="320" height="205">
                             <span class="card-title"></span>
                         </div>
                         <div class="card-content">
                             <p class="grey-text"> <i class="material-icons tiny">watch_later</i> &nbsp;' . $value['dia'] . ', ' . $value['mes'] . ' ' . $value['ano'] ." - ".$value['tempo']. '</p><br>
-                           <a href="index.php?page=Noticias&key=' . $value['id'] . '"> <p>' . $value['titulo'] . '</p></a>
+                           <a href="index.php?page=Noticias&key=' . $value['id'] . '"> <p class="truncate">' . $titulo  . '</p></a>
                         </div>
                         <div class="card-action">
                             <a href="index.php?page=Noticias&key=' . $value['id'] . '"><i class="material-icons tiny">subject</i>&nbsp;Leia Mais</a>
