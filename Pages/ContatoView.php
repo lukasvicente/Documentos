@@ -41,10 +41,12 @@
                         <div class="input-field col s12">
                             <textarea name="texto" id="texto" class="materialize-textarea"></textarea>
                             <label for="texto">Mensagem</label>
+
+                            <button class="btn waves-effect waves-light" type="submit" name="action" value="enviar">Enviar
+                                <i class="material-icons right">send</i>
+                            </button>
+
                         </div>
-                        <button class="btn waves-effect waves-light" type="submit" name="action" value="enviar">Enviar
-                            <i class="material-icons right">send</i>
-                        </button>
 
                     </div>
 
