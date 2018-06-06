@@ -56,6 +56,8 @@
 
             </p></div>
         <div class="col s12 m6">
+            <div class="card-panel teal lighten-2 white-text" style="width:60%;"> SEDE ADMINISTRATIVA </div>
+
             <div class=" blue-text">
                 <p>Centro Administrativo - s/n Km 2 - Lagoa Nova, Natal/RN
                 <p> 59064-901</p>

@@ -15,12 +15,11 @@ return $monta_cpf;
 }
 
 $MenuOptions = [
-    //"Programação" => "Programacao",
+
     "Sobre" => "Sobre",
     "Noticias" => "Noticias",
     "Documentos" => "Documentos",
-    "Contato" => "Contato",
-    "Mais +" => "Mais"
+    "Contato" => "Contato"
     
 ];
 
