@@ -56,14 +56,12 @@
 
             </p></div>
         <div class="col s12 m6">
-            <div class="card-panel teal lighten-2 white-text" style="width:60%;"> SEDE ADMINISTRATIVA </div>
+             <ul class="collection">
+                        <li class="collection-item active">SEDE ADMINISTRATIVA</li>
 
-            <div class=" blue-text">
-                <p>Centro Administrativo - s/n Km 2 - Lagoa Nova, Natal/RN
-                <p> 59064-901</p>
-                Prédio da Emater/RN
-                </p>
-            </div>
+                    </ul>
+
+
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3969.1841204418256!2d-35.21711158523274!3d-5.829646695775913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b2556255555555%3A0xcdc0b38782dfa748!2sAssocia%C3%A7%C3%A3o+dos+Servidores+da+Emater+RN!5e0!3m2!1spt-BR!2sbr!4v1527520719852"
                     width="100%" height="350" frameborder="0" style="border:0" allowfullscreen>
             </iframe>
