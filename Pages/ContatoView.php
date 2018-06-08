@@ -56,11 +56,13 @@
 
             </p></div>
         <div class="col s12 m6">
-            <div class="card-panel teal lighten-2 white-text" style="width:60%;"> SEDE ADMINISTRATIVA </div>
+            <ul class="collection">
+                <li class="collection-item active">SEDE ADMINISTRATIVA</li>
+            </ul>
 
-            <div class=" blue-text">
-                <p>Centro Administrativo - s/n Km 2 - Lagoa Nova, Natal/RN
-                <p> 59064-901</p>
+            <div class="blue-text">
+                <p>Centro Administrativo - s/n Km 2 - Lagoa Nova, Natal/RN -
+                 59064-901</p>
                 Prédio da Emater/RN
                 </p>
             </div>
@@ -76,7 +78,7 @@
     require_once "app/control/UtilWebservice.php";
 
     $para = "lucasvicente2@gmail.com";
-    $email_servidor = "Assema-RN";
+    $email_servidor = "assemarn@assemarn.com.br";
     $nome = $_POST['nome'];
     $assunto = $_POST['assunto'];
     $email = $_POST['email'];
