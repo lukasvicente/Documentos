@@ -102,11 +102,14 @@ function mountDocumentos($values)
 
     $ano = '';
     $tipo = '';
+    
     foreach ($values as $value) {
 
 
         if ($ano <> $value['ano']) {
-            if ($tipo <> $value['tipo']) {
+
+            if ($tipo <> $value['tipo'])
+            {
                 $tipo = $value['tipo'];
 
                 $div = '    
@@ -115,6 +118,7 @@ function mountDocumentos($values)
 
                 echo $div;
             }
+
             $ano = $value['ano'];
 
 
@@ -129,7 +133,8 @@ function mountDocumentos($values)
 
         }
 
-        $div = '<div class="collapsible-body"><span> <a href="' . $value['link'] . '" target="_blank">' . $value['mes'] . '</a></span></div>';
+        $div = '<div class="collapsible-body"><span> <a href="'.UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . $value['link'] . '" target="_blank">' . $value['mes'] ." - ". $value['nome_documento'] . '</a></span></div>';
+
         echo $div;
 
     }
