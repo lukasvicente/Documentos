@@ -103,43 +103,40 @@ function mountDocumentos($values)
     $ano = '';
     $tipo = '';
     
-    foreach ($values as $value) {
-
-
-        if ($ano <> $value['ano']) {
-
-            if ($tipo <> $value['tipo'])
-            {
-                $tipo = $value['tipo'];
-
-                $div = '    
-      <div id="' . $value['tipo'] . '" class="col s12">
-      <ul class="collapsible popout" data-collapsible="accordion">';
-
-                echo $div;
-            }
-
-            $ano = $value['ano'];
-
+    foreach ($values as $value) 
+    {
+    	
+    	if ($tipo <> $value['tipo'])
+        {
+            $tipo = $value['tipo'];
 
             $div = '    
-        <li>
-        <div class="collapsible-header"><i class="material-icons">date_range</i>' . $value['ano'] . '</div>
-        
-        ';
-
-            echo $div;
-
-
+  			<div id="' . $value['tipo'] . '" class="col s12">
+  			<ul class="collapsible popout" data-collapsible="accordion">';                
         }
+
+		echo $div;
+
+        if ($ano <> $value['ano']) 
+        {
+
+	        $ano = $value['ano'];
+	        $div = '    
+	        <li>
+	        <div class="collapsible-header"><i class="material-icons">date_range</i>' . $value['ano'] . '</div>
+	        ';
+        }
+
+		echo $div;
 
         $div = '<div class="collapsible-body"><span> <a href="'.UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . $value['link'] . '" target="_blank">' . $value['mes'] ." - ". $value['nome_documento'] . '</a></span></div>';
 
-        echo $div;
+    	echo $div;
 
-    }
+        echo "</li></ul></div>";
 
-    echo "</li></ul></div>";
+        
+    }  
 
 }
 
