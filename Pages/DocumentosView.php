@@ -75,6 +75,10 @@ function mountDocumentoJson()
         UtilWebservice::$WEBSERVICE_DIRECTORY .
         "DocumentoWebservice.class.php";
 
+    $q = UtilWebservice::callWebservice("DocumentoWebservice", ['ano' => 2018], 'POST' );
+
+    var_dump($q);
+
     $jsonData = file_get_contents($GRUPO_SERVICO_WEBSERVICE);
     $jsonServicos = json_decode($jsonData, true);
     $successServico = $jsonServicos[UtilWebservice::$SUCCESS_TAG];
@@ -102,7 +106,7 @@ function mountDocumentos($values)
 
     $ano = '';
     $tipo = '';
-    
+
     foreach ($values as $value) 
     {
     	
