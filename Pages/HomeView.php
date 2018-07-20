@@ -45,7 +45,7 @@ require_once "app/control/UtilWebservice.php";
         foreach ($values as $key) {
 
        $descricao = substr( $key['descricao'], 0,80 ) . "...";
-       $titulo = substr( $key['titulo'], 0,50 ) . "...";
+       $titulo =  $key['titulo']. "...";
 
        //$className =  'sliderdiv';
        $div = '<li> 

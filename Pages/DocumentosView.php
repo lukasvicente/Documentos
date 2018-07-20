@@ -64,7 +64,7 @@ function mountTipoDocumentos($values)
 
     }
 
-    echo "</ul></div>";
+    echo "</ul> ";
 }
 
 function mountDocumentoJson()
