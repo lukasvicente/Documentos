@@ -64,29 +64,31 @@ function mountTipoDocumentos($values)
 
     }
 
-    echo "</ul> ";
+    echo "</ul></div></div> </div>";
 }
 
 function mountDocumentoJson()
 {
+
     $GRUPO_SERVICO_WEBSERVICE =
         UtilWebservice::$HOST_NAME .
         UtilWebservice::$PROJECT_NAME .
         UtilWebservice::$WEBSERVICE_DIRECTORY .
         "DocumentoWebservice.class.php";
 
-    $q = UtilWebservice::callWebservice("DocumentoWebservice", ['ano' => 2018], 'POST' );
-
-    var_dump($q);
+    $json = UtilWebservice::callWebservice("DocumentoWebservice", ['ano' => 2017], 'POST' );
+    $dados = $json[UtilWebservice::$DADOS_TAG];
 
     $jsonData = file_get_contents($GRUPO_SERVICO_WEBSERVICE);
     $jsonServicos = json_decode($jsonData, true);
     $successServico = $jsonServicos[UtilWebservice::$SUCCESS_TAG];
     $dadosJson = $jsonServicos[UtilWebservice::$DADOS_TAG];
 
+    //var_dump($json);
+
     if ($successServico == 1) {
 
-        mountDocumentos($dadosJson);
+        mountDocumentos($dados);
 
     } else if ($successServico == 2) {
 
@@ -103,52 +105,58 @@ function mountDocumentoJson()
 function mountDocumentos($values)
 {
 
-
     $ano = '';
     $tipo = '';
 
     foreach ($values as $value) 
     {
-    	
-    	if ($tipo <> $value['tipo'])
-        {
+
+        if ($tipo <> $value['tipo']) {
             $tipo = $value['tipo'];
-
-            $div = '    
-  			<div id="' . $value['tipo'] . '" class="col s12">
-  			<ul class="collapsible popout" data-collapsible="accordion">';                
         }
+        $divTipo = '
 
-		echo $div;
+<div id="'.$value['tipo'].'" class="col s12">
+    <ul class="collapsible popout" data-collapsible="accordion">';   
 
-        if ($ano <> $value['ano']) 
-        {
+        //echo $divTipo;
 
-	        $ano = $value['ano'];
-	        $div = '    
-	        <li>
-	        <div class="collapsible-header"><i class="material-icons">date_range</i>' . $value['ano'] . '</div>
-	        ';
-        }
+      $div = '  
+        <li>
+        <div class="collapsible-header"><i class="material-icons">date_range</i>'.$value['ano'].'</div>
+        <div class="collapsible-body"><span> <a href="'.UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . $value['link'] . '" target="_blank">' . $value['mes'] ." - ". $value['nome_documento'] . '</a></span></div>
+        </li>
 
-		echo $div;
+    </ul>
+</div>';
 
-        $div = '<div class="collapsible-body"><span> <a href="'.UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . $value['link'] . '" target="_blank">' . $value['mes'] ." - ". $value['nome_documento'] . '</a></span></div>';
-
-    	echo $div;
-
-        echo "</li></ul></div>";
-
+    	//echo $div;
+    }
         
-    }  
-
+    
 }
 
 print_r(mountTipoDocumentoJson());
 print_r(mountDocumentoJson());
 
 ?>
+<div id="BALANCETE" class="col s12">
+    <ul class="collapsible popout" data-collapsible="accordion">   
 
+        <li>
+            <div class="collapsible-header"><i class="material-icons">date_range</i>2017</div>
+            <div class="collapsible-body"><span> Janeiro</span></div>
+            <div class="collapsible-body"><span> Fevereiro</span></div>
+            <div class="collapsible-body"><span> Marco</span></div>
+        </li>
+
+        <li>
+            <div class="collapsible-header"><i class="material-icons">date_range</i>2018</div>
+            <div class="collapsible-body"><span> Janeiro</span></div>
+        </li>
+
+    </ul>
+</div>
 
 </div>
 </div>
