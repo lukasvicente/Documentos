@@ -22,7 +22,7 @@
                 UtilWebservice::$HOST_NAME .
                 UtilWebservice::$PROJECT_NAME .
                 UtilWebservice::$WEBSERVICE_DIRECTORY .
-                "CategoriaWebservice.class.php";
+                "SubMenuWebservice.class.php";
 
             $jsonData = file_get_contents($GRUPO_SERVICO_WEBSERVICE);
             $jsonServicos = json_decode($jsonData, true);
@@ -148,7 +148,7 @@
                     //if para sem imagem
                     if ($value['nomearquivo'] <> "semimagem.jpg") {
 
-                        $img = '<img class="hide-on-small-only" id="img-noticia" src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . '/app/images/site/' . $value['nomearquivo'] . '">';
+                        $img = '<img class="responsive-img  materialboxed " id="img-noticia" src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . '/app/images/site/' . $value['nomearquivo'] . '">';
                     }
 
                     $div = '

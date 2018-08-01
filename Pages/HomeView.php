@@ -1,3 +1,5 @@
+<main class="container section no-pad-bot">
+    <div class="row" >
 <?php
 
 //ini_set('display_errors', 1);
@@ -5,6 +7,8 @@
 //error_reporting(E_ALL);
 require_once "app/control/UtilWebservice.php";
 
+function mountSliderJson()
+{
         $GRUPO_SERVICO_WEBSERVICE =
         UtilWebservice::$HOST_NAME .
         UtilWebservice::$PROJECT_NAME .
@@ -16,12 +20,7 @@ require_once "app/control/UtilWebservice.php";
         $successServico = $jsonServicos[UtilWebservice::$SUCCESS_TAG];
         $dadosJson = $jsonServicos[UtilWebservice::$DADOS_TAG];
 
-        $div = '<main class="container section no-pad-bot">
-        <div class="row" > <div class="slider">
-        <ul class="slides bluee lighten-1 z-depth-4" style="border-radius: 15px 50px 30px; ">
-        ';
 
-        echo $div;
 
         if( $successServico == 1 )
         {
@@ -39,9 +38,19 @@ require_once "app/control/UtilWebservice.php";
             //new TMessage( 'INFO', 'Ocorreu um problema, tente novamente.' );
 
         }
+}
+
+
 
     function mountSlider( $values )
     {
+        $div = '
+         <div class="slider">
+        <ul class="slides bluee lighten-1 z-depth-4" style="border-radius: 15px 50px 30px; ">
+        ';
+
+        echo $div;
+
         foreach ($values as $key) {
 
        $descricao = substr( $key['descricao'], 0,80 ) . "...";
@@ -61,19 +70,29 @@ require_once "app/control/UtilWebservice.php";
   echo $div;
 
     }
-  }
-
-  $div =' 
+        $div =' 
     </ul>
   </div>
 ';
-echo $div;
+        echo $div;
+  }
+
+echo '<div class="row">
+            <div class="col s12 m4 l8"><p>';
+
+        print_r(mountSliderJson());
+
+echo '</p></div>';
     ?>
 
+        <div class="col s12 m4 l4">
+                <img id="img_borda_home" class="responsive-img  materialboxed " width="280" src="app/images/40anosAssema.jpg">
 
+        </div>
+    </div>
     <div class="intro-message center-align">
-      <h3>Destaques</h3>
-      <hr class="intro-divider">
+        <h3>Destaques</h3>
+        <hr class="intro-divider">
     </div>
 <?php
 
@@ -110,20 +129,20 @@ echo $div;
 
 function mountDestaque( $values )
     {
-    	echo '<div class="row">';
+        echo '<div class="row">';
 
         foreach ($values as $key) {
 
-       $descricao = substr( $key['descricao'], 0,80 ) . "...";
-       $titulo = substr( $key['titulo'], 0,50 ) . "...";
+            $descricao = substr($key['descricao'], 0, 80) . "...";
+            $titulo = substr($key['titulo'], 0, 50) . "...";
 
 
-       $div1 = '
+            $div1 = '
 
       <div class="col s12 m4 l4"> <!-- Note that "m4 l3" was added -->
         <div>
 
-          <div class="card-panel hoverable"> <i class="material-icons tiny">description</i> <b>'.$key['titulo'].'</b>  <br>&nbsp; <div align="justify">'.$key['descricao'].'</div>
+          <div class="card-panel hoverable"> <i class="material-icons tiny">description</i> <b>' . $key['titulo'] . '</b>  <br>&nbsp; <div align="justify">' . $key['descricao'] . '</div>
         </div>
 
       </div>  <!-- Grey navigation panel
@@ -133,7 +152,7 @@ function mountDestaque( $values )
           4-columns-wide on medium screens,
           12-columns-wide on small screens  -->
       </div>';
-  echo $div1;
+            echo $div1;
 
 
     }
@@ -143,47 +162,61 @@ function mountDestaque( $values )
 
       </div>
 
-    <div class="intro-message center-align">
-      <h3>Serviços</h3>
-      <hr class="intro-divider">
-    </div>
+<div class="intro-message center-align">
+    <h3>Serviços</h3>
+    <hr class="intro-divider">
+</div>
 
 
+<div class="section">
 
-    <div class="section">
-
-      <!--   Icon Section   -->
-      <div class="row">
+    <!--   Icon Section   -->
+    <div class="row">
         <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">local_hospital</i></h2>
-            <h5 class="center">Plano de Saúde</h5>
+            <div class="icon-block">
+                <h2 class="center light-blue-text"><i class="material-icons">local_hospital</i></h2>
+                <h5 class="center">Plano de Saúde</h5>
 
-            <p class="light">Declaração do Imposto de Renda dos Planos de Saúde da ASSEMA/RN.</p>
-          </div>
-          <div>
-                  <a href="http://servicos.emater.rn.gov.br/assemarn/documentos/PlanoSaude.php" target="_blank" id="download-button" class="btn-large waves-effect waves-light blue">Consultar</a>
-                  </div>
+                <p class="light">Declaração do Imposto de Renda dos Planos de Saúde da ASSEMA/RN.</p>
+                <div class="center">
+                    <a href="http://servicos.emater.rn.gov.br/assemarn/documentos/PlanoSaude.php" target="_blank"
+                       id="download-button" class="btn-large waves-effect waves-light blue">Consultar</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="col s12 m4">
+            <div class="icon-block">
+                <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+                <h5 class="center">Dissidio Coletivo</h5>
+
+                <p class="light">Para consultar os valores do dissidio coletivo e sobre o processo URV</p>
+                <div class="center">
+                    <a href="http://servicos.emater.rn.gov.br/assemarn/documentos/Dissidio.php" target="_blank"
+                       id="download-button" class="btn-large waves-effect waves-light blue">Consultar</a>
+                </div>
+            </div>
+
         </div>
 
-
-      </div>
-
     </div>
+</div>
 
-    <div class="intro-message center-align">
-      <h3>Parceiros</h3>
-      <hr class="intro-divider">
-    </div>
+</div>
 
-    <div class="col  m3 s6 center-align">
-      <a href="#">
+<div class="intro-message center-align">
+    <h3>Parceiros</h3>
+    <hr class="intro-divider">
+</div>
+
+<div class="col  m3 s6 center-align">
+    <a href="#">
         <img height="130px" src="app/images/ceres.png" alt="">
-      </a>
-      <a href="http://www.emater.rn.gov.br/" target="_blank">
+    </a>
+    <a href="http://www.emater.rn.gov.br/" target="_blank">
         <img height="130px" src="app/images/LOGO_EMATER.png" alt="">
-      </a>
-    </div>
+    </a>
+</div>
 
 </main>
 

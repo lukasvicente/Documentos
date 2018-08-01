@@ -92,7 +92,9 @@ function mountDocumentos($values)
 
             $json = UtilWebservice::callWebservice("DocumentoWebservice", ['ano' => $ano, 'tipo_documento' => $tiposDocumentos['nome']], 'POST' );
             $dados = $json[UtilWebservice::$DADOS_TAG];
+
             if (!empty($dados)){
+
 
 
             $html .= '<li>  <div class="collapsible-header"><i class="material-icons">date_range</i>'. $ano .'</div>';
@@ -100,12 +102,17 @@ function mountDocumentos($values)
             $tempMes = '';
 
             foreach($dados as $dado) {
+                if ($tiposDocumentos['nome'] != "BALANCETE"){
+
+                    $nome = " - " . $dado['nome_documento'];
+
+                }
 
                 if($tempMes != $dado['mes']) {
 
                     $tempMes = $dado['mes'];
 
-                    $html .= '<div class="collapsible-body"><span><a href="' .UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . $dado['link'] .'" target="_blank">' . $tempMes . '</a></span></div>';
+                    $html .= '<div class="collapsible-body"><span><a href="' .UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . $dado['link'] .'" target="_blank">' . $tempMes .$nome. '</a></span></div>';
 
                 }
 
@@ -123,30 +130,6 @@ function mountDocumentos($values)
 
     //-----------------
 
-    foreach ($values as $value)
-    {
-
-        if ($tipo <> $value['tipo']) {
-            $tipo = $value['tipo'];
-        }
-        $divTipo = '
-
-<div id="'.$value['tipo'].'" class="col s12">
-    <ul class="collapsible popout" data-collapsible="accordion">';
-
-        //echo $divTipo;
-
-      $div = '  
-        <li>
-        <div class="collapsible-header"><i class="material-icons">date_range</i>'.$value['ano'].'</div>
-        <div class="collapsible-body"><span> <a href="'.UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . $value['link'] . '" target="_blank">' . $value['mes'] ." - ". $value['nome_documento'] . '</a></span></div>
-        </li>
-
-    </ul>
-</div>';
-
-    	//echo $div;
-    }
         
     
 }
@@ -155,9 +138,9 @@ print_r(mountTipoDocumentoJson());
 
 ?>
 
-</div>
-</div>
-</div>
+            </div>
+        </div>
+    </div>
 <br><br>
 </div>
 <br><br>

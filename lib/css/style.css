@@ -5,6 +5,10 @@
  *
  * Made By MaterializeCSS.com
  */
+#img_borda_home
+{
+	border-radius: 10px 10px 10px 10px;
+}
  html {  }
  *{ margin: 0;
    padding: 0; 
