@@ -1,6 +1,6 @@
 <div class="container">
     <div class="section">
-        <nav class="light-blue lighten-1">
+        <nav class="teal lighten-2">
             <div class="nav-wrapper">
                 <div class="col s12">
                     <a href="index.php" class="breadcrumb"><i style="margin-left:20px;" class="material-icons">home</i></a>

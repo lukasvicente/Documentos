@@ -1,6 +1,6 @@
 <div class="container">
     <div class="section">
-        <nav class="light-blue lighten-1">
+        <nav class="teal lighten-2">
             <div class="nav-wrapper">
                 <div class="col s12">
                     <a href="index.php" class="breadcrumb"><i style="margin-left:20px;" class="material-icons">home</i></a>
@@ -95,14 +95,12 @@ function mountDocumentos($values)
 
             if (!empty($dados)){
 
-
-
             $html .= '<li>  <div class="collapsible-header"><i class="material-icons">date_range</i>'. $ano .'</div>';
 
             $tempMes = '';
 
             foreach($dados as $dado) {
-                if ($tiposDocumentos['nome'] != "BALANCETE"){
+                if ($tiposDocumentos['nome'] != "BALANCETES"){
 
                     $nome = " - " . $dado['nome_documento'];
 
