@@ -131,7 +131,7 @@
                             <span class="card-title"></span>
                         </div>
                         <div class="card-content">
-                            <p class="grey-text"> <i class="material-icons tiny">watch_later</i> &nbsp;' . $value['dia'] . ', ' . $value['mes'] . ' ' . $value['ano'] ." - ".$value['tempo']. '</p><br>
+                            <p class="grey-text"> <i class="material-icons tiny">watch_later</i> &nbsp;' . $value['dia'] . ', ' . $value['mes'] . ' ' . $value['ano'] . '</p><br>
                            <a href="index.php?page=Noticias&key=' . $value['id'] . '"> <p class="truncate">' . $titulo  . '</p></a>
                         </div>
                         <div class="card-action">

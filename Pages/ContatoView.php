@@ -24,22 +24,22 @@
 
                         <div class="input-field col s12">
 
-                            <input placeholder="Ex.: Ana" name="nome" id="nome" type="text" class="validate">
+                            <input required placeholder="Ex.: Ana" name="nome" id="nome" type="text" class="validate">
                             <label for="nome">Nome</label>
                         </div>
 
                         <div class="input-field col s12">
-                            <input  placeholder="Ex.: exemplo@exemplo.com" name="email" id="email" type="email" class="validate">
+                            <input required  placeholder="Ex.: exemplo@exemplo.com" name="email" id="email" type="email" class="validate">
                             <label for="email" data-error="Inválido" data-success="Válido">E-mail</label>
                         </div>
 
                         <div class="input-field col s12">
-                            <input  placeholder="Ex.: Sugestão, Reclamação etc." name="assunto" id="assunto" type="text" class="validate">
+                            <input required  placeholder="Ex.: Sugestão, Reclamação etc." name="assunto" id="assunto" type="text" class="validate">
                             <label for="assunto">Assunto</label>
                         </div>
 
                         <div class="input-field col s12">
-                            <textarea name="texto" id="texto" class="materialize-textarea"></textarea>
+                            <textarea required name="texto" id="texto" class="materialize-textarea"></textarea>
                             <label for="texto">Mensagem</label>
 
                             <button class="btn waves-effect waves-light" type="submit" name="action" value="enviar">Enviar
@@ -79,7 +79,7 @@
 
     require_once "app/control/UtilWebservice.php";
 
-    $para = "lucasvicente2@gmail.com";
+    $para = "contato@assemarn.com.br";
     $email_servidor = "assemarn@assemarn.com.br";
     $nome = $_POST['nome'];
     $assunto = $_POST['assunto'];
@@ -88,17 +88,33 @@
     $data_envio = date('d/m/Y');
     $hora_envio = date('H:i:s');
 
-    enviaEmail($email,$assunto,$mensagem,$para,$email_servidor);
+    if ( (!empty($assunto)) && (!empty($nome)) && (!empty($email)) && (!empty($mensagem)) )
+    {
 
-    function enviaEmail($de, $assunto, $mensagem, $para, $email_servidor) {
-        $headers = "From: $email_servidor\r\n" .
+        enviaEmail($email,$assunto,$mensagem,$para, $nome);
+
+        $script = '
+        <script type="text/javascript">
+        alert("Enviado com Sucesso");
+        </script>
+        ';
+        echo $script;
+    }
+
+    function enviaEmail($de, $assunto, $mensagem, $para, $nome)
+    {
+        $headers = "From: $nome <$de>\r\n" .
             "Reply-To: $de\r\n" .
             "X-Mailer: PHP/" . phpversion() . "\r\n";
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-        mail($para, $assunto, nl2br($mensagem), $headers);
+        $mensagem = $mensagem . " <br><br><br> Mensagem enviada pelo site.";
+
+        mail($para, utf8_decode($assunto), utf8_decode($mensagem), $headers);
     }
 
+    //$token = md5(uniqid(""));
+    //echo $token;
     ?>
 
