@@ -3,13 +3,13 @@
 class UtilWebservice
 {
 
-	public static $HOST_NAME = "http://ceres.rn.gov.br/";
-	public static $PROJECT_NAME = "novo_assema/";
-	public static $WEBSERVICE_DIRECTORY = "app/service/site/";
-
 	//public static $HOST_NAME = "http://ceres.rn.gov.br/";
 	//public static $PROJECT_NAME = "novo_assema/";
 	//public static $WEBSERVICE_DIRECTORY = "app/service/site/";
+
+	public static $HOST_NAME = "http://devceres.govrn/";
+	public static $PROJECT_NAME = "novo_assema/";
+	public static $WEBSERVICE_DIRECTORY = "app/service/site/";
 
 
 	public static $SUCCESS_TAG = "success";

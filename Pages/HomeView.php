@@ -86,8 +86,10 @@ echo '</p></div>';
     ?>
 
         <div class="col s12 m4 l4">
-                <img id="img_borda_home" class="responsive-img  materialboxed " width="280" src="app/images/40anosAssema.jpg">
-
+            <p align="center">
+            <img  id="img_borda_home" class="responsive-img  materialboxed " width="280"
+                 src="app/images/40anosAssema.jpg">
+            </p>
         </div>
     </div>
     <div class="intro-message center-align">
