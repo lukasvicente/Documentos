@@ -7,7 +7,7 @@ class UtilWebservice
 	//public static $PROJECT_NAME = "novo_assema/";
 	//public static $WEBSERVICE_DIRECTORY = "app/service/site/";
 
-	public static $HOST_NAME = "http://devceres.govrn/";
+	public static $HOST_NAME = "http://localhost/";
 	public static $PROJECT_NAME = "novo_assema/";
 	public static $WEBSERVICE_DIRECTORY = "app/service/site/";
 
