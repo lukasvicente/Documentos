@@ -85,10 +85,13 @@ echo '<div class="row">
 echo '</p></div>';
     ?>
 
+
+        <br>
         <div class="col s12 m4 l4">
+
             <p align="center">
-            <img  id="img_borda_home" class="responsive-img  materialboxed " width="280"
-                 src="app/images/40anosAssema.jpg">
+                <img id="img_borda_home" class="responsive-img  materialboxed " width="280"
+                     src="app/images/BANNER_SITE_ASSEMA.png">
             </p>
         </div>
     </div>
@@ -218,7 +221,7 @@ function mountDestaque( $values )
     <a href="http://www.emater.rn.gov.br/" target="_blank">
         <img height="130px" src="app/images/LOGO_EMATER.png" alt="">
     </a>
-</div>
+</div>  
 
 </main>
 
