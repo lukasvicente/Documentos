@@ -74,7 +74,7 @@
                 UtilWebservice::$HOST_NAME .
                 UtilWebservice::$PROJECT_NAME .
                 UtilWebservice::$WEBSERVICE_DIRECTORY .
-                "NoticiaSiteWebservice.class.php";
+                "GaleriaWebservice.class.php";
 
             $jsonData = file_get_contents($GRUPO_SERVICO_WEBSERVICE);
             $jsonServicos = json_decode($jsonData, true);
@@ -127,18 +127,18 @@
         <div class="col s12 m6">
           <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . '/app/images/site/' . $value['nomearquivo'] . '" width="320" height="205">
+              <img class="activator" src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . '/app/images/site/galeria/' . $value['arquivo'] . '" width="320" height="205">
             </div>
             <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+              <span class="card-title activator grey-text text-darken-4"><p class="truncate">' . $value['titulo'] . '</p><i class="material-icons right">more_vert</i></span>
             </div>
             <div class="card sticky-action">
             
-                <div class="card-action"><a href="#">VEJA MAIS</a></div>
+                <div class="card-action"><a href="index.php?page=Galeria&key=' . $value['id'] . '">VEJA MAIS</a></div>
             </div>
             <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-              <p>Here is some more information about this product that is only revealed once clicked on.</p>
+              <span class="card-title grey-text text-darken-4">' . $value['titulo'] . '<i class="material-icons right">close</i></span>
+              <p>' . $value['descricao'] . '</p>
             </div>
           </div>
         </div>';
@@ -155,15 +155,41 @@
                     }
 
                     $div = '
-                <h5><b>' . $value['titulo'] . '</b></h5>
+                <h5 class="center-align"><b>' . $value['titulo'] . '</b></h5>
                 <hr class="intro-divider"> <br>
                 <a class="grey-text"> <i class="material-icons tiny">watch_later</i> &nbsp;' . $value['dia'] . ' de ' . $value['mes'] . ' ' . $value['ano'] . ' | ' . $value['hora'] . ' </a>
-                <br> <br>
-                 <div">' . $img . $value['descricao'] . '
-                 <br><br>
-                 </div>';
+                <br> <br>';
 
                     echo $div;
+
+                    $GRUPO_SERVICO_WEBSERVICE =
+                        UtilWebservice::$HOST_NAME .
+                        UtilWebservice::$PROJECT_NAME .
+                        UtilWebservice::$WEBSERVICE_DIRECTORY .
+                        "GaleriaImagemWebservice.class.php";
+
+                    $json = UtilWebservice::callWebservice("GaleriaImagemWebservice", ['galeria_id' => $value['id']], 'POST' );
+                    $dados = $json[UtilWebservice::$DADOS_TAG];
+
+                    $galleryHtml = '<div class="demo-gallery">
+                                    <ul id="lightgallery" class="list-unstyled row">';
+
+                    foreach($dados as $dado) {
+
+                    $galleryHtml .= '
+                                
+                    <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . '/app/images/site/galeria/' . $dado['foto_arquivo'] . '" data-src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . '/app/images/site/galeria/' . $dado['foto_arquivo'] . '" data-sub-html="<h4>' . $dado['titulo'] . '</h4><p>' . $dado['foto_descricao'] . '</p>">
+                        <a href="">
+                            <img class="img-responsive" src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . '/app/images/site/galeria/' . $dado['foto_arquivo'] . '">
+                        </a>
+                    </li>';
+
+                    }
+                    $galleryHtml .= ' 
+                        </ul>
+                    </div>';
+
+                    echo $galleryHtml;
                 }
 
         }
