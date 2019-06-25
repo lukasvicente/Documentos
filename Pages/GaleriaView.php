@@ -127,7 +127,7 @@
         <div class="col s12 m6">
           <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . '/app/images/site/galeria/' . $value['arquivo'] . '" width="320" height="205">
+              <img class="activator" src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . 'app/images/site/galeria/' . $value['arquivo'] . '" width="320" height="205">
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4"><p class="truncate">' . $value['titulo'] . '</p><i class="material-icons right">more_vert</i></span>
@@ -151,7 +151,7 @@
                     //if para sem imagem
                     if ($value['nomearquivo'] <> "semimagem.jpg") {
 
-                        $img = '<img class="responsive-img  materialboxed " id="img-noticia" src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . '/app/images/site/' . $value['nomearquivo'] . '">';
+                        $img = '<img class="responsive-img  materialboxed " id="img-noticia" src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . 'app/images/site/' . $value['nomearquivo'] . '">';
                     }
 
                     $div = '
@@ -178,9 +178,9 @@
 
                     $galleryHtml .= '
                                 
-                    <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . '/app/images/site/galeria/' . $dado['foto_arquivo'] . '" data-src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . '/app/images/site/galeria/' . $dado['foto_arquivo'] . '" data-sub-html="<h4>' . $dado['titulo'] . '</h4><p>' . $dado['foto_descricao'] . '</p>">
+                    <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . 'app/images/site/galeria/' . $dado['foto_arquivo'] . '" data-src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . 'app/images/site/galeria/' . $dado['foto_arquivo'] . '" data-sub-html="<h4>' . $dado['titulo'] . '</h4><p>' . $dado['foto_descricao'] . '</p>">
                         <a href="">
-                            <img class="img-responsive" src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . '/app/images/site/galeria/' . $dado['foto_arquivo'] . '">
+                            <img class="img-responsive" src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . 'app/images/site/galeria/' . $dado['foto_arquivo'] . '">
                         </a>
                     </li>';
 

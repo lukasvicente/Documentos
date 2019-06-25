@@ -59,10 +59,22 @@ function setFooter()
 
 function setStyle()
 {
-    echo file_get_contents( "lib/html/style.html" );
+    $style =  file_get_contents( "lib/html/style.html" );
+
+    $versao = uniqid();
+
+    $style = str_replace( "{VERSAO}", $versao, $style );
+
+    echo $style;
 }
 
 function setScripts()
 {
-    echo file_get_contents( "lib/html/scripts.html" );
+    $script = file_get_contents( "lib/html/scripts.html" );
+
+    $versao = uniqid();
+
+    $script = str_replace( "{VERSAO}", $versao, $script );
+
+    echo $script;
 }

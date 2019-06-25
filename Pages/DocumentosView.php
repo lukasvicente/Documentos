@@ -82,7 +82,7 @@ function mountDocumentos($values)
 
         $html = '<div id="' . $tiposDocumentos['nome'] .'" class="col s12"> <ul class="collapsible popout" data-collapsible="accordion">';
 
-        for($ano = 2016; $ano <= date('Y'); $ano++) {
+        for($ano = 2012; $ano <= date('Y'); $ano++) {
 
             $GRUPO_SERVICO_WEBSERVICE =
                 UtilWebservice::$HOST_NAME .

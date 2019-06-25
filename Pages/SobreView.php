@@ -10,11 +10,6 @@
         </nav>
     </div>
 
-    <div>
-        <a class="waves-effect waves-light btn-large"
-           href="http://www.assemarn.com.br/app/files/Estatuto_Assema_RN_2013.pdf" target="_blank"><i
-                    class="tiny material-icons">description</i> Estatuto</a>
-    </div>
     <?php
 
     require_once "app/control/UtilWebservice.php";
