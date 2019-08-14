@@ -1,4 +1,5 @@
 <?php require_once "util.php";
+require_once "app/control/Url.php";
 require_once "app/control/UtilWebservice.php";
 set_time_limit(0);
 ?>
@@ -20,8 +21,13 @@ set_time_limit(0);
   <?php setHeader();?>
 
   <main>
+
   <?php
-  setMain( isset( $_GET["page"] ) ? $_GET["page"] : NULL ); 
+
+  $page = Url::getURL( 0 );
+
+  setMain( isset( $page ) ? $page : NULL );
+
   ?>
   </main>
 

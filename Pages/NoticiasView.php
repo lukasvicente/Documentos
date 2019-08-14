@@ -15,6 +15,7 @@
         <?php
 
         require_once "app/control/UtilWebservice.php";
+        require_once "app/control/Url.php";
 
         function mountCategoriaJson()
         {
@@ -47,6 +48,8 @@
 
         function mountCategoria($values)
         {
+            $url = URL::getBase();
+
             $div = '
 <div class="col s12 m4 l3">
             <div class="collection">
@@ -57,7 +60,7 @@
 
             foreach ($values as $value) {
 
-                $div = '<a href="index.php?page=' . $value['nome'] . '" class="collection-item">' . $value['nome'] . '</a>';
+                $div = '<a href="' . $url . $value['nome'] . '" class="collection-item">' . $value['nome'] . '</a>';
 
                 echo $div;
 
@@ -102,6 +105,7 @@
             $i = 0;
             //quantidade de registros por pagina
             $qReg = 6;
+            $key = Url::getURL(1);
 
             $numberPage = intval((filter_input(INPUT_GET, 'p')) ? filter_input(INPUT_GET, 'p') : "1");
 
@@ -121,7 +125,9 @@
 
           if( $i >= $valor_pag_begin  and $i <=  $valor_pag_end ){
 
-                if (!filter_input(INPUT_GET, 'key')) {
+
+                if ($key == null) {
+                    
                 $titulo = $value['titulo'];
                     $div = '
                 <div class="col s12 m6">
@@ -135,7 +141,7 @@
                            <a href="index.php?page=Noticias&key=' . $value['id'] . '"> <p class="truncate">' . $titulo  . '</p></a>
                         </div>
                         <div class="card-action">
-                            <a href="index.php?page=Noticias&key=' . $value['id'] . '"><i class="material-icons tiny">subject</i>&nbsp;Leia Mais</a>
+                            <a href="Noticias/' . $value['apelido'] . '"><i class="material-icons tiny">subject</i>&nbsp;Leia Mais</a>
                         </div>
                     </div>
                 </div>';
@@ -143,7 +149,7 @@
                     echo $div;
                 }
             }
-                if ($value['id'] == $_GET['key']) {
+                if ($value['apelido'] == $key) {
 
                     //if para sem imagem
                     if ($value['nomearquivo'] <> "semimagem.jpg") {
@@ -165,21 +171,21 @@
 
         }
 
-            if (!filter_input(INPUT_GET, 'key')) {
+            if ($key == null) {
 
                 echo '
             
         </div>';
             }
 
-        if( !filter_input(INPUT_GET, 'key') ){
+        if( $key == null ){
           getPagination( ceil(count($values) /$qReg), $numberPage  );
         }
 }
 
     function getPagination( $count, $page )
     {
-
+        $url = URL::getBase();
     $numberPage = intval((filter_input(INPUT_GET, 'p')) ? filter_input(INPUT_GET, 'p') : "1");
 
        
@@ -187,7 +193,7 @@
 
       $div = '<center>
         <ul class="pagination">
-            <li class="waves-effect"><a href="index.php?page=Noticias&p='.$back.'"><i class="material-icons">chevron_left</i></a></li>'; 
+            <li class="waves-effect"><a href="'. $url .'Noticias?p='.$back.'"><i class="material-icons">chevron_left</i></a></li>';
       echo $div;
 
         
@@ -202,20 +208,20 @@
         
         $forward = $numberPage + 1;
 
-        $div = ' <li '.$classe.' ><a href="index.php?page=Noticias&p='.$i.'">'.$i.'</a></li>'; 
+        $div = ' <li '.$classe.' ><a href="'. $url .'Noticias?p='.$i.'">'.$i.'</a></li>';
         echo $div;
       }
 
       if ($count > $numberPage) 
       {
-        echo '<li class="waves-effect"><a href="index.php?page=Noticias&p='.$forward.'"><i class="material-icons">chevron_right</i></a></li>'; 
+        echo '<li class="waves-effect"><a href="'. $url .'Noticias?p='.$forward.'"><i class="material-icons">chevron_right</i></a></li>';
       }
     
 
     echo '</ul>
         </center>';
     }
-        if (!filter_input(INPUT_GET, 'key')) {
+        if ($key == null) {
 
             print_r(mountCategoriaJson());
         }
