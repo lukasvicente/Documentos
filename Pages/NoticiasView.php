@@ -17,6 +17,8 @@
         require_once "app/control/UtilWebservice.php";
         require_once "app/control/Url.php";
 
+        $key = Url::getURL(1);
+
         function mountCategoriaJson()
         {
             $GRUPO_SERVICO_WEBSERVICE =
@@ -138,7 +140,7 @@
                         </div>
                         <div class="card-content">
                             <p class="grey-text"> <i class="material-icons tiny">watch_later</i> &nbsp;' . $value['dia'] . ', ' . $value['mes'] . ' ' . $value['ano'] . '</p><br>
-                           <a href="index.php?page=Noticias&key=' . $value['id'] . '"> <p class="truncate">' . $titulo  . '</p></a>
+                           <a href="Noticias/' . $value['apelido'] .  '"> <p class="truncate">' . $titulo  . '</p></a>
                         </div>
                         <div class="card-action">
                             <a href="Noticias/' . $value['apelido'] . '"><i class="material-icons tiny">subject</i>&nbsp;Leia Mais</a>

@@ -50,6 +50,7 @@ function setHeader()
     }
 
     $header = str_replace( "{OPTIONS}", $options, $header );
+    $header = str_replace( "{URL}", $url, $header );
 
     echo $header;
 }
