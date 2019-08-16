@@ -1,10 +1,19 @@
+<?php
+
+require_once "app/control/UtilWebservice.php";
+require_once "app/control/Url.php";
+
+$key = Url::getURL(1);
+$url = URL::getBase();
+
+?>
 <div class="container">
     <div class="section">
         <nav class="teal lighten-2">
             <div class="nav-wrapper">
                 <div class="col s12">
-                    <a href="index.php" class="breadcrumb"><i style="margin-left:20px;" class="material-icons">home</i></a>
-                    <a href="index.php?page=Noticias" class="breadcrumb">Noticias</a>
+                    <a href="<?php echo $url; ?>" class="breadcrumb"><i style="margin-left:20px;" class="material-icons">home</i></a>
+                    <a href="<?php echo $url; ?>Noticias" class="breadcrumb">Noticias</a>
                 </div>
             </div>
         </nav>
@@ -13,11 +22,6 @@
     <div class="row">
 
         <?php
-
-        require_once "app/control/UtilWebservice.php";
-        require_once "app/control/Url.php";
-
-        $key = Url::getURL(1);
 
         function mountCategoriaJson()
         {
@@ -133,7 +137,7 @@
                 $titulo = $value['titulo'];
                     $div = '
                 <div class="col s12 m6">
-                    <div class="card tiny">
+                    <div class=" card tiny">
                         <div class="card-image" >
                             <img src="' . UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME . '/app/images/site/' . $value['nomearquivo'] . '" width="320" height="205">
                             <span class="card-title"></span>

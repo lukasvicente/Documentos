@@ -1,43 +1,53 @@
-<?php require_once "util.php";
-require_once "app/control/Url.php";
-require_once "app/control/UtilWebservice.php";
-set_time_limit(0);
+<?php
+    require_once "util.php";
+    require_once "app/control/Url.php";
+    require_once "app/control/UtilWebservice.php";
+    set_time_limit(0);
+
+    $page = Url::getURL(0);
+
+    if ( $page )
+    {
+        $title = strtoupper($page) . " | ";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <meta name="author" content="Lucas Vicente - lucasvicente2@gmail.com" />
-    <meta name="keywords" content="assema,assemarn,associação,rn, natal" />
-  <title>ASSEMA - RN</title>
-  <link rel="icon" type="image/x-icon" href="app/images/favicon.ico" sizes="16x16">
+    <head>
 
-<?php setStyle(); ?>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <meta name="author" content="Lucas Vicente - lucasvicente2@gmail.com"/>
+        <meta name="keywords" content="assema,assemarn,associação,rn, natal"/>
+        <title> <?php echo $title; ?> ASSEMA RN - ASSOCIAÇÃO DOS SERVIDORES DA EMATER RN </title>
+        <link rel="icon" type="image/x-icon" href="app/images/favicon.ico" sizes="16x16">
 
-</head>
-<body>
+        <?php setStyle(); ?>
 
-  <?php setHeader();?>
+    </head>
+    <body>
 
-  <main>
+        <?php setHeader(); ?>
 
-  <?php
+        <main>
 
-  $page = Url::getURL( 0 );
+            <?php
 
-  setMain( isset( $page ) ? $page : NULL );
+                setMain(isset($page) ? $page : NULL);
 
-  ?>
-  </main>
+            ?>
 
-    
-  <?php
-  setFooter();  
-  setScripts(); 
-  ?>
+        </main>
 
-  </body>
+
+        <?php
+
+            setFooter();
+            setScripts();
+
+        ?>
+
+    </body>
 
 
 </html>
