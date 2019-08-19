@@ -16,6 +16,7 @@ $monta_cpf = "$parte_um.$parte_dois.$parte_tres-$parte_quatro";
 return $monta_cpf;
 }
 
+
 $MenuOptions = [
 
     "Sobre" => "Sobre",
@@ -27,10 +28,19 @@ $MenuOptions = [
 
 function setMain( $page )
 {
-    if (  file_exists( "Pages/{$page}View.php" ) ) {
+    $key = URL::getURL(0);
+
+    if (  file_exists( "Pages/{$page}View.php" ) )
+    {
         require_once "Pages/{$page}View.php";
-    } else {
+    }
+    elseif ($key == null)
+    {
         require_once "Pages/HomeView.php";
+    }else
+    {
+        require_once "Pages/error404.php";
+
     }
 }
 
