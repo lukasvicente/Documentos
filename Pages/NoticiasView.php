@@ -3,8 +3,9 @@
 require_once "app/control/UtilWebservice.php";
 require_once "app/control/Url.php";
 
-$key = Url::getURL(1);
+$key = Url::getURL(2);
 $url = URL::getBase();
+
 
 ?>
 <div class="container">
@@ -111,7 +112,9 @@ $url = URL::getBase();
             $i = 0;
             //quantidade de registros por pagina
             $qReg = 6;
-            $key = Url::getURL(1);
+            $apelido = Url::getURL(1);
+            $key = Url::getURL(2);
+            $url = URL::getBase();
 
             $numberPage = intval((filter_input(INPUT_GET, 'p')) ? filter_input(INPUT_GET, 'p') : "1");
 
@@ -144,10 +147,10 @@ $url = URL::getBase();
                         </div>
                         <div class="card-content">
                             <p class="grey-text"> <i class="material-icons tiny">watch_later</i> &nbsp;' . $value['dia'] . ', ' . $value['mes'] . ' ' . $value['ano'] . '</p><br>
-                           <a href="Noticias/' . $value['apelido'] .  '"> <p class="truncate">' . $titulo  . '</p></a>
+                           <a href="'.$url.'Noticias/' . $value['apelido'] .'/'.$value['id'].'"> <p class="truncate">' . $titulo  . '</p></a>
                         </div>
                         <div class="card-action">
-                            <a href="Noticias/' . $value['apelido'] . '"><i class="material-icons tiny">subject</i>&nbsp;Leia Mais</a>
+                            <a href="'.$url.'Noticias/' . $value['apelido'] .'/'.$value['id'].'"><i class="material-icons tiny">subject</i>&nbsp;Leia Mais</a>
                         </div>
                     </div>
                 </div>';
@@ -155,7 +158,7 @@ $url = URL::getBase();
                     echo $div;
                 }
             }
-                if ($value['apelido'] == $key) {
+                if ($value['id'] == $key) {
 
                     //if para sem imagem
                     if ($value['nomearquivo'] <> "semimagem.jpg") {
@@ -167,9 +170,21 @@ $url = URL::getBase();
                 <h5><b>' . $value['titulo'] . '</b></h5>
                 <hr class="intro-divider"> <br>
                 <a class="grey-text"> <i class="material-icons tiny">watch_later</i> &nbsp;' . $value['dia'] . ' de ' . $value['mes'] . ' ' . $value['ano'] . ' | ' . $value['hora'] . ' </a>
-                <br> <br>
+                <br> <br> 
                  <div">' . $img . $value['descricao'] . '
+                 
                  <br><br>
+                 
+                 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d5bfc86ed947eea"></script>
+            <p class="grey-text">COMPARTILHE</p>
+              
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://' .$_SERVER["HTTP_HOST"] .$url .'Noticias/'.$value['apelido'].'/'.$value['id'].'">
+                <img width="30" height="30" src="https://img.icons8.com/color/48/000000/facebook.png" alt="">
+            </a>
+            
+            <a target="_blank" href="https://api.whatsapp.com/send?text='.$value['titulo'].' https://' .$_SERVER["HTTP_HOST"] .$url .'Noticias/'.$value['apelido'].'/'.$value['id'].'">
+	            <img width="30" height="30" src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="">
+            </a>    
                  </div>';
 
                     echo $div;
