@@ -1,10 +1,21 @@
+<?php
+
+require_once "app/control/UtilWebservice.php";
+require_once "app/control/Url.php";
+
+$key = Url::getURL(1);
+$url = URL::getBase();
+
+?>
+
+
 <div class="container">
     <div class="section">
         <nav class="teal lighten-2">
             <div class="nav-wrapper">
                 <div class="col s12">
-                    <a href="index.php" class="breadcrumb"><i style="margin-left:20px;" class="material-icons">home</i></a>
-                    <a href="index.php?page=Contato" class="breadcrumb">Contato</a>
+                    <a href="<?php echo $url; ?>" class="breadcrumb"><i style="margin-left:20px;" class="material-icons">home</i></a>
+                    <a href="<?php echo $url; ?>Contato" class="breadcrumb">Contato</a>
                 </div>
             </div>
         </nav>
