@@ -38,7 +38,8 @@ function setMain( $page )
     elseif ($key == null)
     {
         require_once "Pages/HomeView.php";
-    }else
+    }
+    else
     {
         require_once "Pages/error404.php";
 
@@ -111,8 +112,9 @@ function setTitle()
 
     if ( $page and  $nome_page )
     {
-        $title = str_replace("_", " ", $nome_page) . " | " . strtoupper($page) . " | ";
-    }elseif ($page and $nome_page ==  null ) 
+        $title = str_replace("-", " ", $nome_page) . " | " . strtoupper($page) . " | ";
+    }
+    elseif ($page and $nome_page ==  null )
     {
         $title =  strtoupper($page) . " | ";
     }

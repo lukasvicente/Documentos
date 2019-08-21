@@ -66,12 +66,17 @@ $url = URL::getBase();
 
     function mountProcesso($values)
     {
-        if (!filter_input(INPUT_GET, 'key')) {
+        $key = Url::getURL(2);
+        $url = URL::getBase();
+
+        if ( $key == null )
+        {
+
             $div = '   <div class="row">
 
-            <h3 class="header center orange-text">Processos Coletivos</h3>
+            <h3 class="header center grey-text">Processos Coletivos</h3>
 
-            <p class="header center orange-text">Informações sobre os processos coletivos da Emater/RN</p>
+            <p class="header center grey-text">Informações sobre os processos coletivos da Emater/RN</p>
             <div class="col s12 m12 l12">
             <table class="striped">
                 <thead>
@@ -91,7 +96,8 @@ $url = URL::getBase();
 
                 $div = ' <tr>
                         <td><a class="btn-floating pulse btn-small waves-effect waves-light grey darken-2 tooltipped" 
-                        data-position="top" data-tooltip="Vizualizar" href="index.php?page=Processos&key=' . $value['id'] . '"><i class="material-icons">search</i></a></td>
+                        data-position="top" data-tooltip="Vizualizar" href="'.$url.'Processos/' . $value['apelido'] . '/' . $value['id'] . '">
+                        <i class="material-icons">search</i></a></td>
                         <td>' . $value['nome'] . '</td>
                         <td>' . $value['numero'] . '</td>
                         <td>' . $value['situacao'] . '</td>
@@ -112,7 +118,7 @@ $url = URL::getBase();
 
 
 
-            if ($value['id'] == $_GET['key']) {
+            if ($value['id'] == $key) {
 
                 $div = '
     <h4 class="header center black-text">' . $value['nome'] . " - " . $value['numero'] . '</h4> 
@@ -139,10 +145,10 @@ $url = URL::getBase();
                 $host = UtilWebservice::$HOST_NAME .
                     UtilWebservice::$PROJECT_NAME ;
 
-                $key = $_GET['key'];
 
                 $json = UtilWebservice::callWebservice("ProcessoDocumentoWebservice", [], 'POST' );
                 $dados = $json[UtilWebservice::$DADOS_TAG];
+
                 foreach ( $dados as $dado ){
 
                     if ($key == $dado['processo_id']){
@@ -159,6 +165,7 @@ $url = URL::getBase();
             </li>
 
         </ul>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d5bfc86ed947eea"></script>
     ';
 
                 echo $div;
@@ -167,9 +174,12 @@ $url = URL::getBase();
     }
 
     print_r(mountProcessoJson());
-    if (!filter_input(INPUT_GET, 'key')) {
-        echo "<br>
-            <p><font color=red><b>*</b></font> Para consultar valores, <a href=\"#\">clique aqui.</a></p>";
+    if ( $key == null ) {
+        echo "
+    <!--
+        <br>
+            <p><font color=red><b>*</b></font> Para consultar valores, <a href=\"#\">clique aqui.</a></p>
+     -->       ";
     }
 
 

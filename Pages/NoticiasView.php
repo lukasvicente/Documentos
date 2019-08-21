@@ -60,8 +60,8 @@ $url = URL::getBase();
             $div = '
 <div class="col s12 m4 l3">
             <div class="collection">
-                <a  class="collection-item active"><i class="material-icons tiny">arrow_forward</i> CATEGORIA</a>
-                ';
+             <!--   <a  class="collection-item active"><i class="material-icons tiny">arrow_forward</i> CATEGORIA</a>
+               -->   ';
 
             echo $div;
 
