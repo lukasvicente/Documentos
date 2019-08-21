@@ -176,7 +176,10 @@ $url = URL::getBase();
                  <br><br>
                  
                  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d5bfc86ed947eea"></script>
-            <p class="grey-text">COMPARTILHE</p>
+
+        <!-- Compartilhar redes sociaias
+
+         <p class="grey-text">COMPARTILHE</p>
               
             <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://' .$_SERVER["HTTP_HOST"] .$url .'Noticias/'.$value['apelido'].'/'.$value['id'].'">
                 <img width="30" height="30" src="https://img.icons8.com/color/48/000000/facebook.png" alt="">
@@ -184,7 +187,9 @@ $url = URL::getBase();
             
             <a target="_blank" href="https://api.whatsapp.com/send?text='.$value['titulo'].' https://' .$_SERVER["HTTP_HOST"] .$url .'Noticias/'.$value['apelido'].'/'.$value['id'].'">
 	            <img width="30" height="30" src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="">
-            </a>    
+            </a>   
+            
+            --> 
                  </div>';
 
                     echo $div;

@@ -6,6 +6,8 @@
 //ini_set('display_startup_erros', 1);
 //error_reporting(E_ALL);
 require_once "app/control/UtilWebservice.php";
+require_once "app/control/Url.php";
+
 
 function mountSliderJson()
 {
@@ -44,6 +46,9 @@ function mountSliderJson()
 
     function mountSlider( $values )
     {
+        
+        $url = URL::getBase();
+                
         $div = '
          <div class="slider">
         <ul class="slides bluee lighten-1 z-depth-4" style="border-radius: 15px 50px 30px; ">
@@ -58,7 +63,7 @@ function mountSliderJson()
 
        //$className =  'sliderdiv';
        $div = '<li> 
-        <a href="index.php?page=Noticias&key='.$key['id'].'"> 
+        <a href="'.$url.'Noticias/'.$key['apelido'].'/'.$key['id'].'"> 
        <img style="border-radius: 15px 50px 30px; padding: 100px; " src="'. UtilWebservice::$HOST_NAME . UtilWebservice::$PROJECT_NAME .'app/images/site/'. strtolower($key['tipo']) .'/'. $key['nomearquivo'] .'"> <div  class="caption center-align sliderdiv">
                 <h4 style="text-shadow: 2px 2px #000;">'.  $titulo .'</h4>
                 

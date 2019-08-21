@@ -14,6 +14,7 @@ $parte_quatro = substr($nbr_cpf, 9, 2);
 $monta_cpf = "$parte_um.$parte_dois.$parte_tres-$parte_quatro";
 
 return $monta_cpf;
+
 }
 
 
@@ -66,11 +67,14 @@ function setHeader()
 }
 function setFooter()
 {
+    
     $footer = file_get_contents( "lib/html/footer.html" );
 
 
     $ano = date('Y');
+    $url = URL::getBase();
     $footer = str_replace( "{ANO}", $ano, $footer );
+    $footer = str_replace( "{URL}", $url, $footer );
 
     echo $footer;
 }
