@@ -3,13 +3,8 @@
     require_once "app/control/Url.php";
     require_once "app/control/UtilWebservice.php";
     set_time_limit(0);
-
     $page = Url::getURL(0);
-
-    if ( $page )
-    {
-        $title = strtoupper($page) . " | ";
-    }
+    $url = Url::getBase();
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -19,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
         <meta name="author" content="Lucas Vicente - lucasvicente2@gmail.com"/>
         <meta name="keywords" content="assema,assemarn,associação,rn, natal"/>
-        <title> <?php echo $title; ?> ASSEMA RN - ASSOCIAÇÃO DOS SERVIDORES DA EMATER RN </title>
+        <title> <?php echo setTitle(); ?> ASSEMA RN - ASSOCIAÇÃO DOS SERVIDORES DA EMATER RN </title>
         <link rel="icon" type="image/x-icon" href="app/images/favicon.ico" sizes="16x16">
 
         <?php setStyle(); ?>

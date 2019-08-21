@@ -102,3 +102,20 @@ function setScripts()
 
     echo $script;
 }
+
+function setTitle()
+{
+    
+    $page = Url::getURL(0);
+    $nome_page = strtoupper(Url::getURL(1));
+
+    if ( $page and  $nome_page )
+    {
+        $title = str_replace("_", " ", $nome_page) . " | " . strtoupper($page) . " | ";
+    }elseif ($page and $nome_page ==  null ) 
+    {
+        $title =  strtoupper($page) . " | ";
+    }
+
+    echo $title;
+}
