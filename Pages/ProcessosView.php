@@ -77,6 +77,8 @@ $url = URL::getBase();
             <h3 class="header center grey-text">Processos Coletivos</h3>
 
             <p class="header center grey-text">Informações sobre os processos coletivos da Emater/RN</p>
+            <p class="header center grey-text">Consultar Processos no PJe RN, 
+                <a href="http://cms.tjrn.jus.br/pje/" target="_blank">Clique aqui.</a></p>
             <div class="col s12 m12 l12">
             <table class="striped">
                 <thead>

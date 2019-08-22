@@ -195,11 +195,11 @@ function mountDestaque( $values )
         <div class="col s12 m4">
             <div class="icon-block">
                 <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                <h5 class="center">Dissidio Coletivo</h5>
+                <h5 class="center">Processos  Coletivos</h5>
 
-                <p class="light">Para consultar os valores do dissidio coletivo e sobre o processo URV</p>
+                <p class="light">Para consultar a situação dos processos coletivos da Emater/RN</p>
                 <div class="center">
-                    <a href="http://servicos.emater.rn.gov.br/assemarn/documentos/Dissidio.php" target="_blank"
+                    <a href="<?php $url = URL::getBase(); echo $url;?>Processos"
                        id="download-button" class="btn-large waves-effect waves-light blue">Consultar</a>
                 </div>
             </div>
